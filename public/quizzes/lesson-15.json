@@ -1,0 +1,86 @@
+{
+  "id": "quiz-lesson-15",
+  "lessonId": "lesson-15",
+  "title": "Reliable Communication: Idempotency, Retries & Timeouts",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "After a request times out with no response, what do you actually know about the outcome?",
+      "options": [
+        { "id": "a", "text": "The operation definitely failed" },
+        { "id": "b", "text": "The operation definitely succeeded" },
+        { "id": "c", "text": "It's unknown — the operation may have succeeded and the reply was lost, or it never arrived" },
+        { "id": "d", "text": "The server crashed" }
+      ],
+      "answer": "c",
+      "explanation": "A timeout is ambiguous: the client can't tell whether the operation ran and the response was lost, or the request never arrived. This is why blind retries are dangerous."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "Why add jitter to exponential backoff?",
+      "options": [
+        { "id": "a", "text": "To make retries happen faster" },
+        { "id": "b", "text": "So clients that failed together don't retry in lockstep and re-overload the service" },
+        { "id": "c", "text": "To encrypt the retries" },
+        { "id": "d", "text": "To guarantee the request succeeds" }
+      ],
+      "answer": "b",
+      "explanation": "Jitter randomizes the wait so a crowd of clients spreads their retries over time instead of hitting the recovering service in a synchronized wave."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "How does an idempotency key make a non-idempotent write (like a charge) safe to retry?",
+      "options": [
+        { "id": "a", "text": "It encrypts the payment details" },
+        { "id": "b", "text": "The server records the key's result and returns it on a retry, instead of performing the operation again" },
+        { "id": "c", "text": "It cancels the first attempt" },
+        { "id": "d", "text": "It makes the request faster" }
+      ],
+      "answer": "b",
+      "explanation": "The same key is sent on every retry; the server recognizes it and returns the stored result, so the charge happens at most once."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "What is a 'retry storm'?",
+      "options": [
+        { "id": "a", "text": "A backup process running nightly" },
+        { "id": "b", "text": "Many clients retrying a failing dependency at once, amplifying load and cascading the failure" },
+        { "id": "c", "text": "A burst of successful requests" },
+        { "id": "d", "text": "A type of load balancer" }
+      ],
+      "answer": "b",
+      "explanation": "Synchronized, unbounded retries pile load onto a service exactly when it's weakest, often finishing it off. Backoff, jitter, retry caps, and circuit breakers prevent it."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "What is the risk of setting a timeout too long?",
+      "options": [
+        { "id": "a", "text": "Requests fail too early" },
+        { "id": "b", "text": "Threads, connections, and memory stay tied up waiting on a dead peer, risking resource exhaustion" },
+        { "id": "c", "text": "The server gets fewer requests" },
+        { "id": "d", "text": "Nothing; longer is always safer" }
+      ],
+      "answer": "b",
+      "explanation": "An overly long timeout leaks resources on a dead dependency, which can cascade into a wider outage. Too short, and you get false failures. Tune deliberately."
+    },
+    {
+      "id": "q6",
+      "type": "multiple-choice",
+      "prompt": "Which operations are naturally safe to retry without special handling? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "GET (read a resource)" },
+        { "id": "b", "text": "PUT (replace a resource with a full new value)" },
+        { "id": "c", "text": "DELETE (remove a resource)" },
+        { "id": "d", "text": "POST (create a new charge)" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "GET, PUT, and DELETE are idempotent, so repeating them has the same effect as doing them once. POST is not idempotent and needs an idempotency key."
+    }
+  ]
+}

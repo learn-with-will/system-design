@@ -1,0 +1,86 @@
+{
+  "id": "quiz-lesson-16",
+  "lessonId": "lesson-16",
+  "title": "Rate Limiting & API Gateways",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Why is the token bucket algorithm so widely used for rate limiting?",
+      "options": [
+        { "id": "a", "text": "It blocks all bursts completely" },
+        { "id": "b", "text": "It allows short bursts up to the bucket capacity while enforcing a steady average rate" },
+        { "id": "c", "text": "It requires no configuration" },
+        { "id": "d", "text": "It never rejects requests" }
+      ],
+      "answer": "b",
+      "explanation": "A token bucket refills at a steady rate up to a capacity, so a client can burst up to the bucket size but is held to a steady long-run rate."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What is the boundary-burst problem with fixed-window rate limiting?",
+      "options": [
+        { "id": "a", "text": "The window never resets" },
+        { "id": "b", "text": "A client can send a full window just before the reset and another full window just after, briefly doubling the rate" },
+        { "id": "c", "text": "It uses too much memory" },
+        { "id": "d", "text": "It cannot count requests" }
+      ],
+      "answer": "b",
+      "explanation": "Because the counter resets at the window boundary, a client can pack a full window on each side of the boundary, sending roughly double the intended rate in a short span."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "What HTTP status code should a rate-limited request receive?",
+      "options": [
+        { "id": "a", "text": "404 Not Found" },
+        { "id": "b", "text": "500 Internal Server Error" },
+        { "id": "c", "text": "429 Too Many Requests" },
+        { "id": "d", "text": "200 OK" }
+      ],
+      "answer": "c",
+      "explanation": "429 Too Many Requests signals rate limiting, ideally with a Retry-After header so well-behaved clients back off."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which are typical responsibilities of an API gateway? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Routing requests to backend services" },
+        { "id": "b", "text": "Authentication and rate limiting at the edge" },
+        { "id": "c", "text": "TLS termination and centralized logging" },
+        { "id": "d", "text": "Storing the primary copy of all business data" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "A gateway handles cross-cutting concerns: routing, auth, rate limiting, TLS, and observability. It should not become the system of record for business data."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "You run 5 gateway instances, each enforcing '600/minute per user' with a local counter. What goes wrong?",
+      "options": [
+        { "id": "a", "text": "Nothing; local counters are fine" },
+        { "id": "b", "text": "A user can hit each instance separately, getting up to 5x the intended limit" },
+        { "id": "c", "text": "The limit becomes too strict" },
+        { "id": "d", "text": "The gateway crashes" }
+      ],
+      "answer": "b",
+      "explanation": "Local counters don't coordinate, so a user spread across N instances gets N times the limit. A shared counter (e.g., in Redis) enforces one global limit."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "How does a leaky bucket differ from a token bucket?",
+      "options": [
+        { "id": "a", "text": "A leaky bucket allows unlimited bursts" },
+        { "id": "b", "text": "A leaky bucket queues requests and processes them at a fixed rate, smoothing bursts into a steady stream" },
+        { "id": "c", "text": "They are identical" },
+        { "id": "d", "text": "A leaky bucket never limits anything" }
+      ],
+      "answer": "b",
+      "explanation": "A leaky bucket drains at a constant rate, smoothing bursts (with queuing delay), while a token bucket permits bursts up to its capacity."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-06",
+  "lessonId": "lesson-06",
+  "title": "Storage Foundations: SQL vs NoSQL",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What does the 'A' in ACID guarantee?",
+      "options": [
+        { "id": "a", "text": "Availability — the database is always up" },
+        { "id": "b", "text": "Atomicity — a transaction is all-or-nothing" },
+        { "id": "c", "text": "Anonymity — data is encrypted" },
+        { "id": "d", "text": "Accuracy — queries are always correct" }
+      ],
+      "answer": "b",
+      "explanation": "Atomicity means a transaction fully succeeds or fully fails — a half-completed transfer never persists."
+    },
+    {
+      "id": "q2",
+      "type": "match-pair",
+      "prompt": "Match each NoSQL family to what it is best at.",
+      "pairs": [
+        { "left": "Key-value", "right": "Ultra-fast lookups by a single key" },
+        { "left": "Document", "right": "Flexible, self-contained records read as a whole" },
+        { "left": "Wide-column", "right": "Very high write volume over large tables" },
+        { "left": "Graph", "right": "Relationship-heavy queries and traversals" }
+      ],
+      "explanation": "Each NoSQL family targets a data shape: key-value for lookups, document for whole records, wide-column for write-heavy large tables, and graph for relationships."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "Is the claim 'SQL databases can't scale, only NoSQL can' accurate?",
+      "options": [
+        { "id": "a", "text": "Yes, relational databases cannot scale at all" },
+        { "id": "b", "text": "No — it's an oversimplification; they make different trade-offs" },
+        { "id": "c", "text": "Yes, NoSQL is always faster" },
+        { "id": "d", "text": "No — NoSQL can never scale" }
+      ],
+      "answer": "b",
+      "explanation": "Relational databases scale with replicas and partitioning (and distributed SQL); NoSQL scales by giving up features like joins and multi-key transactions. The difference is trade-offs, not a hard limit."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "You need multi-row transactions and complex joins for an orders-and-payments feature. Which fits best?",
+      "options": [
+        { "id": "a", "text": "A key-value store" },
+        { "id": "b", "text": "A relational (SQL) database" },
+        { "id": "c", "text": "A graph database" },
+        { "id": "d", "text": "A CDN" }
+      ],
+      "answer": "b",
+      "explanation": "Money and multi-row integrity call for ACID transactions and joins, which relational databases provide natively."
+    },
+    {
+      "id": "q5",
+      "type": "fill-blank",
+      "prompt": "Using more than one type of database in a single system, each chosen for a workload, is called ______ persistence. (one word)",
+      "answer": ["polyglot"],
+      "explanation": "Polyglot persistence means picking the right store per workload rather than forcing everything into one database."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "In ACID, whose responsibility is the 'C' (consistency) largely considered to be?",
+      "options": [
+        { "id": "a", "text": "The network's" },
+        { "id": "b", "text": "The application's — the database enforces the constraints you declare" },
+        { "id": "c", "text": "The operating system's" },
+        { "id": "d", "text": "Nobody's; it is automatic" }
+      ],
+      "answer": "b",
+      "explanation": "As DDIA notes, the C in ACID is largely the application's responsibility: it defines the invariants, and the database enforces the constraints it's told about."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "quiz-lesson-03",
+  "lessonId": "lesson-03",
+  "title": "Back-of-the-Envelope Estimation",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Approximately how many seconds are in a day?",
+      "options": [
+        { "id": "a", "text": "~3,600" },
+        { "id": "b", "text": "~86,400" },
+        { "id": "c", "text": "~1,000,000" },
+        { "id": "d", "text": "~10,000" }
+      ],
+      "answer": "b",
+      "explanation": "A day is 24 x 60 x 60 = 86,400 seconds, roughly 10^5 — a handy shortcut for turning per-day numbers into per-second (QPS)."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What is the main lesson of the classic latency numbers?",
+      "options": [
+        { "id": "a", "text": "All storage is about equally fast" },
+        { "id": "b", "text": "Memory is far faster than SSD, which is far faster than disk, and a cross-continent round trip dwarfs local work" },
+        { "id": "c", "text": "Network calls are always faster than memory access" },
+        { "id": "d", "text": "Disk seeks are measured in nanoseconds" }
+      ],
+      "answer": "b",
+      "explanation": "The ratios matter: memory (~100 ns) << SSD (~tens of microseconds) << disk seek (~10 ms), and a cross-continent round trip (~150 ms) dominates. That is why we cache and use CDNs."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "A service handles 40 writes/second. Assuming a 100:1 read-to-write ratio, what is the approximate read QPS?",
+      "options": [
+        { "id": "a", "text": "~0.4" },
+        { "id": "b", "text": "~140" },
+        { "id": "c", "text": "~4,000" },
+        { "id": "d", "text": "~400,000" }
+      ],
+      "answer": "c",
+      "explanation": "read QPS = write QPS x read:write ratio = 40 x 100 = ~4,000 reads/second."
+    },
+    {
+      "id": "q4",
+      "type": "fill-blank",
+      "prompt": "Because traffic is spiky, you should always size a system for its ______ load, not its average. (one word)",
+      "answer": ["peak"],
+      "explanation": "Sizing for the average under-provisions; apply a peak factor (often 2-3x) and design for the peak."
+    },
+    {
+      "id": "q5",
+      "type": "multiple-choice",
+      "prompt": "Which factors belong in a storage estimate? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Number of items" },
+        { "id": "b", "text": "Size per item" },
+        { "id": "c", "text": "Retention (how long you keep it)" },
+        { "id": "d", "text": "Replication factor (number of copies)" }
+      ],
+      "answer": ["a", "b", "c", "d"],
+      "explanation": "Storage = items x size per item x retention x replication factor. Forgetting replication is a common way to undercount by a factor of 2-3."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "What makes a back-of-the-envelope estimate trustworthy and defensible?",
+      "options": [
+        { "id": "a", "text": "Reporting the number to several decimal places" },
+        { "id": "b", "text": "Stating the assumptions behind it so others can check them" },
+        { "id": "c", "text": "Using the largest possible numbers" },
+        { "id": "d", "text": "Running the real system first" }
+      ],
+      "answer": "b",
+      "explanation": "The value is order-of-magnitude, not precise. Stated assumptions are what let others verify and challenge the estimate."
+    }
+  ]
+}

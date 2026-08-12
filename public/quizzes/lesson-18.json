@@ -1,0 +1,86 @@
+{
+  "id": "quiz-lesson-18",
+  "lessonId": "lesson-18",
+  "title": "Resilience Patterns",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is a cascading failure?",
+      "options": [
+        { "id": "a", "text": "A database losing data" },
+        { "id": "b", "text": "One failure tying up a caller's resources and taking it down, which takes its callers down, spreading across the system" },
+        { "id": "c", "text": "A planned maintenance window" },
+        { "id": "d", "text": "A single server crash with no wider effect" }
+      ],
+      "answer": "b",
+      "explanation": "A cascade is when one slow or failed dependency exhausts a caller's resources, dragging down everything that depends on it — the failure most resilience patterns aim to contain."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "In the OPEN state, what does a circuit breaker do?",
+      "options": [
+        { "id": "a", "text": "Sends all calls through normally" },
+        { "id": "b", "text": "Fails fast — rejects calls immediately without hitting the dependency — for a cooldown period" },
+        { "id": "c", "text": "Retries forever" },
+        { "id": "d", "text": "Shuts down the caller" }
+      ],
+      "answer": "b",
+      "explanation": "When open, the breaker fails fast so callers don't pile up on a down dependency, giving it room to recover. After a cooldown it goes half-open to test recovery."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "What does the bulkhead pattern isolate?",
+      "options": [
+        { "id": "a", "text": "Data between regions" },
+        { "id": "b", "text": "Resources like thread/connection pools, so one hung dependency can't exhaust all of them" },
+        { "id": "c", "text": "User sessions" },
+        { "id": "d", "text": "Encryption keys" }
+      ],
+      "answer": "b",
+      "explanation": "Bulkheads give each dependency its own resource pool, so a single hung dependency exhausts only its pool and the others keep working — like watertight ship compartments."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "A product page's recommendation service is down. Graceful degradation means:",
+      "options": [
+        { "id": "a", "text": "Return a 500 error for the whole page" },
+        { "id": "b", "text": "Render the product page without recommendations instead of failing entirely" },
+        { "id": "c", "text": "Retry recommendations forever" },
+        { "id": "d", "text": "Shut down the site" }
+      ],
+      "answer": "b",
+      "explanation": "Graceful degradation returns a reduced but working response — here, the product page minus the optional recommendations section — rather than failing the whole request."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "What problem does service discovery solve?",
+      "options": [
+        { "id": "a", "text": "Encrypting traffic between services" },
+        { "id": "b", "text": "Finding a healthy instance of a dependency at runtime as instances come and go" },
+        { "id": "c", "text": "Storing the database" },
+        { "id": "d", "text": "Rate limiting requests" }
+      ],
+      "answer": "b",
+      "explanation": "Instances constantly change (autoscaling, deploys, failures), so addresses aren't fixed. Service discovery (a registry, DNS, or platform mechanism) returns healthy instances at runtime."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "Under severe overload, why might a system deliberately reject some requests (load shedding)?",
+      "options": [
+        { "id": "a", "text": "To punish users" },
+        { "id": "b", "text": "Because serving all requests badly can collapse the system; shedding excess protects the core so most requests succeed" },
+        { "id": "c", "text": "To save electricity" },
+        { "id": "d", "text": "It never should reject requests" }
+      ],
+      "answer": "b",
+      "explanation": "Trying to serve everything under overload can cause total collapse. Load shedding sacrifices some (often low-priority) requests to keep the core healthy for the rest."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-02",
+  "lessonId": "lesson-02",
+  "title": "Scalability, Availability & Performance",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Which statement best captures the difference between latency and throughput?",
+      "options": [
+        { "id": "a", "text": "Latency is requests per second; throughput is time per request" },
+        { "id": "b", "text": "Latency is how long one request takes; throughput is how many requests complete per unit of time" },
+        { "id": "c", "text": "They are two names for the same measurement" },
+        { "id": "d", "text": "Latency applies to reads; throughput applies to writes" }
+      ],
+      "answer": "b",
+      "explanation": "Latency is per-request time; throughput is volume over time. Adding parallel workers can raise throughput without changing per-request latency."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "Why do engineers report p99 latency instead of the average?",
+      "options": [
+        { "id": "a", "text": "The average is harder to compute" },
+        { "id": "b", "text": "p99 is always smaller, so it looks better" },
+        { "id": "c", "text": "The average hides the slow tail that real users experience" },
+        { "id": "d", "text": "Percentiles are required by law" }
+      ],
+      "answer": "c",
+      "explanation": "A few very slow requests drag the average in a misleading way. p99 shows what the slowest 1% of requests actually experience."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "Approximately how much downtime per year does 99.99% availability (four nines) allow?",
+      "options": [
+        { "id": "a", "text": "About 8.8 hours" },
+        { "id": "b", "text": "About 52.6 minutes" },
+        { "id": "c", "text": "About 5.3 minutes" },
+        { "id": "d", "text": "About 3.65 days" }
+      ],
+      "answer": "b",
+      "explanation": "Four nines allows roughly 52.6 minutes of downtime per year. Three nines is ~8.8 hours; five nines is ~5.3 minutes."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each reliability term to its meaning.",
+      "pairs": [
+        { "left": "SLI", "right": "A measured indicator of service quality" },
+        { "left": "SLO", "right": "The internal target for an indicator" },
+        { "left": "SLA", "right": "A customer contract with consequences" },
+        { "left": "Error budget", "right": "The amount of failure the SLO permits" }
+      ],
+      "explanation": "The SLI is measured, the SLO is the target you hold it to, the SLA is the contractual promise (usually looser than the SLO), and the error budget is 100% minus the SLO."
+    },
+    {
+      "id": "q5",
+      "type": "multiple-choice",
+      "prompt": "Which are true of scaling out (horizontal scaling)? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "It spreads load across more machines" },
+        { "id": "b", "text": "It can be made fault-tolerant with no single machine as a hard ceiling" },
+        { "id": "c", "text": "It introduces distributed-systems complexity" },
+        { "id": "d", "text": "It always guarantees strong consistency for free" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Scaling out adds machines, avoids a single-machine ceiling, and can be fault-tolerant — but it brings distributed-systems challenges. Consistency is not free; it is one of those challenges."
+    },
+    {
+      "id": "q6",
+      "type": "fill-blank",
+      "prompt": "If your SLO is 99.9% success, the 0.1% of allowed failure is called your ______ ______. (two words)",
+      "answer": ["error budget"],
+      "explanation": "The error budget is 100% minus the SLO — the amount of failure you are allowed to spend on risk and change."
+    }
+  ]
+}

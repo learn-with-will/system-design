@@ -1,0 +1,85 @@
+{
+  "id": "quiz-lesson-21",
+  "lessonId": "lesson-21",
+  "title": "Designing for Failure",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "How do you remove a single point of failure?",
+      "options": [
+        { "id": "a", "text": "Make the component faster" },
+        { "id": "b", "text": "Add redundancy — run more than one so losing one is survivable" },
+        { "id": "c", "text": "Add more logging" },
+        { "id": "d", "text": "Encrypt the component" }
+      ],
+      "answer": "b",
+      "explanation": "A SPOF is removed by redundancy: running spare capacity (N+1, active-active or active-passive) so the failure of one instance doesn't take down the system."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "Why must redundant copies be placed in different failure domains?",
+      "options": [
+        { "id": "a", "text": "To reduce latency" },
+        { "id": "b", "text": "Because redundancy only helps if the copies don't fail together; copies in one rack/zone can all die at once" },
+        { "id": "c", "text": "To save money" },
+        { "id": "d", "text": "It doesn't matter where they are" }
+      ],
+      "answer": "b",
+      "explanation": "Three replicas in one rack all fail if that rack loses power. Spreading across zones/regions makes failures independent, which is the point of redundancy."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "Why is replication NOT a substitute for backups?",
+      "options": [
+        { "id": "a", "text": "Replication is slower than backups" },
+        { "id": "b", "text": "Replication faithfully propagates corruption and accidental deletes to all replicas instantly; backups are point-in-time copies you can restore from" },
+        { "id": "c", "text": "Backups are always live copies" },
+        { "id": "d", "text": "They are the same thing" }
+      ],
+      "answer": "b",
+      "explanation": "If a bug or bad DELETE corrupts data, replication copies the damage everywhere. A backup is a point-in-time copy that lets you recover — so you need both."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each term to its meaning.",
+      "pairs": [
+        { "left": "RTO", "right": "Maximum acceptable time to restore service" },
+        { "left": "RPO", "right": "Maximum acceptable data loss, measured in time" },
+        { "left": "Active-active", "right": "All redundant units serve traffic" },
+        { "left": "Active-passive", "right": "A standby takes over on failure" }
+      ],
+      "explanation": "RTO is downtime tolerance, RPO is data-loss tolerance; active-active runs all units live, active-passive keeps a standby ready."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "A team runs three database replicas in the same rack 'for low latency.' What's the flaw?",
+      "options": [
+        { "id": "a", "text": "Three replicas is too many" },
+        { "id": "b", "text": "They share a failure domain, so a rack power loss kills all three at once" },
+        { "id": "c", "text": "Replicas can't be in the same rack technically" },
+        { "id": "d", "text": "Nothing is wrong" }
+      ],
+      "answer": "b",
+      "explanation": "Co-locating replicas in one failure domain means one rack outage takes them all down, defeating the purpose of redundancy. Spread them across zones."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "What is chaos engineering?",
+      "options": [
+        { "id": "a", "text": "Writing code without a plan" },
+        { "id": "b", "text": "Deliberately injecting failures in a controlled way to verify redundancy and failover actually work" },
+        { "id": "c", "text": "Randomly deleting production data" },
+        { "id": "d", "text": "A type of load balancing" }
+      ],
+      "answer": "b",
+      "explanation": "Chaos engineering intentionally introduces failures (killing instances, adding latency, simulating outages) under controlled conditions to prove the system's resilience before a real outage does."
+    }
+  ]
+}

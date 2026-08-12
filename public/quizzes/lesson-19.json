@@ -1,0 +1,83 @@
+{
+  "id": "quiz-lesson-19",
+  "lessonId": "lesson-19",
+  "title": "Distributed Transactions: Saga, 2PC & Outbox",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Why is two-phase commit (2PC) generally avoided across microservices?",
+      "options": [
+        { "id": "a", "text": "It loses data on every commit" },
+        { "id": "b", "text": "It is blocking — participants hold locks awaiting the decision, and a coordinator crash leaves them in-doubt — and it isn't partition-tolerant" },
+        { "id": "c", "text": "It cannot achieve atomicity" },
+        { "id": "d", "text": "It only works with NoSQL" }
+      ],
+      "answer": "b",
+      "explanation": "2PC provides atomicity but blocks: participants hold locks between voting and the decision, a coordinator failure strands them in-doubt, and it isn't partition-tolerant — bad for availability at scale."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What is a saga?",
+      "options": [
+        { "id": "a", "text": "A single ACID transaction across many databases" },
+        { "id": "b", "text": "A sequence of local transactions where failures trigger compensating transactions to undo earlier steps" },
+        { "id": "c", "text": "A caching strategy" },
+        { "id": "d", "text": "A type of load balancer" }
+      ],
+      "answer": "b",
+      "explanation": "A saga breaks a distributed operation into local transactions; if a later step fails, compensating transactions semantically undo the completed steps."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "What guarantee do sagas give up compared to a single ACID transaction?",
+      "options": [
+        { "id": "a", "text": "Atomicity" },
+        { "id": "b", "text": "Durability" },
+        { "id": "c", "text": "Isolation — intermediate states are visible before the saga completes" },
+        { "id": "d", "text": "They give up nothing" }
+      ],
+      "answer": "c",
+      "explanation": "Each saga step commits immediately, so other operations can observe intermediate states. Sagas provide a form of atomicity via compensation but not isolation."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each saga coordination style to its description.",
+      "pairs": [
+        { "left": "Orchestration", "right": "A central coordinator tells each service what to do next" },
+        { "left": "Choreography", "right": "Each service emits events that trigger the next, with no central controller" }
+      ],
+      "explanation": "Orchestration centralizes the flow in one coordinator; choreography is event-driven and decentralized."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "What is the dual-write problem?",
+      "options": [
+        { "id": "a", "text": "Writing the same row twice" },
+        { "id": "b", "text": "Updating a database and publishing an event are two systems that can't be written atomically, so one may succeed and the other fail" },
+        { "id": "c", "text": "Two users writing at once" },
+        { "id": "d", "text": "A replication conflict" }
+      ],
+      "answer": "b",
+      "explanation": "Because the database and the message broker are separate systems, a naive 'write DB then publish' can leave them inconsistent if one succeeds and the other fails."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "How does the transactional outbox solve the dual-write problem?",
+      "options": [
+        { "id": "a", "text": "It publishes to the broker first, then writes the database" },
+        { "id": "b", "text": "It writes the event to an outbox table in the SAME database transaction as the change, then a relay publishes it — so the event is sent iff the transaction committed" },
+        { "id": "c", "text": "It disables events entirely" },
+        { "id": "d", "text": "It uses two-phase commit between the database and broker" }
+      ],
+      "answer": "b",
+      "explanation": "The business change and an outbox row commit together atomically; a separate relay reads the outbox and publishes (at-least-once), so consumers must be idempotent."
+    }
+  ]
+}

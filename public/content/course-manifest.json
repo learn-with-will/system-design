@@ -1,0 +1,410 @@
+[
+    {
+        "id": "lesson-01",
+        "slug": "what-is-system-design",
+        "title": "What Is System Design?",
+        "level": "beginner",
+        "order": 1,
+        "duration": 18,
+        "file": "beginner/what-is-system-design.md",
+        "summary": "What system design is, functional vs non-functional requirements, and the reliability/scalability/maintainability lens — plus why every design is a set of trade-offs.",
+        "tags": [
+            "fundamentals",
+            "requirements",
+            "trade-offs",
+            "reliability",
+            "scalability"
+        ]
+    },
+    {
+        "id": "lesson-02",
+        "slug": "scalability-availability-and-performance",
+        "title": "Scalability, Availability & Performance",
+        "level": "beginner",
+        "order": 2,
+        "duration": 22,
+        "file": "beginner/scalability-availability-and-performance.md",
+        "summary": "Latency vs throughput, why we measure with percentiles (p99), what availability 'nines' mean in real downtime, and SLI/SLO/SLA.",
+        "tags": [
+            "scalability",
+            "availability",
+            "latency",
+            "throughput",
+            "slo"
+        ]
+    },
+    {
+        "id": "lesson-03",
+        "slug": "back-of-the-envelope-estimation",
+        "title": "Back-of-the-Envelope Estimation",
+        "level": "beginner",
+        "order": 3,
+        "duration": 24,
+        "file": "beginner/back-of-the-envelope-estimation.md",
+        "summary": "Size a system fast: powers of two, the latency numbers every engineer should know, and estimating QPS, storage, and bandwidth from stated assumptions.",
+        "tags": [
+            "estimation",
+            "capacity-planning",
+            "latency-numbers",
+            "qps",
+            "storage"
+        ]
+    },
+    {
+        "id": "lesson-04",
+        "slug": "how-the-internet-works",
+        "title": "How the Internet Works for Designers",
+        "level": "beginner",
+        "order": 4,
+        "duration": 24,
+        "file": "beginner/how-the-internet-works.md",
+        "summary": "IP, TCP vs UDP, DNS, HTTP/HTTPS and TLS, why round trips dominate latency, and how CDNs bring content closer to users.",
+        "tags": [
+            "networking",
+            "tcp",
+            "dns",
+            "http",
+            "tls"
+        ]
+    },
+    {
+        "id": "lesson-05",
+        "slug": "designing-apis",
+        "title": "Designing APIs: REST, RPC & GraphQL",
+        "level": "beginner",
+        "order": 5,
+        "duration": 26,
+        "file": "beginner/designing-apis.md",
+        "summary": "REST, gRPC, and GraphQL compared; HTTP methods and which are safe/idempotent; pagination, versioning, and idempotency keys for safe retries.",
+        "tags": [
+            "api",
+            "rest",
+            "grpc",
+            "graphql",
+            "idempotency"
+        ]
+    },
+    {
+        "id": "lesson-06",
+        "slug": "sql-vs-nosql",
+        "title": "Storage Foundations: SQL vs NoSQL",
+        "level": "beginner",
+        "order": 6,
+        "duration": 26,
+        "file": "beginner/sql-vs-nosql.md",
+        "summary": "The relational model and ACID, the four NoSQL families, ACID vs BASE, and how to choose storage by data model and access patterns — without the scaling myths.",
+        "tags": [
+            "databases",
+            "sql",
+            "nosql",
+            "acid",
+            "data-modeling"
+        ]
+    },
+    {
+        "id": "lesson-07",
+        "slug": "caching",
+        "title": "Caching",
+        "level": "beginner",
+        "order": 7,
+        "duration": 26,
+        "file": "beginner/caching.md",
+        "summary": "Cache-aside, read-through, write-through, and write-back; eviction and TTLs; why invalidation is hard; and preventing cache stampedes.",
+        "tags": [
+            "caching",
+            "performance",
+            "invalidation",
+            "eviction",
+            "cdn"
+        ]
+    },
+    {
+        "id": "lesson-08",
+        "slug": "load-balancing-and-reverse-proxies",
+        "title": "Load Balancing & Reverse Proxies",
+        "level": "beginner",
+        "order": 8,
+        "duration": 24,
+        "file": "beginner/load-balancing-and-reverse-proxies.md",
+        "summary": "How load balancers give scale and availability, Layer 4 vs Layer 7, balancing algorithms, health checks, and reverse proxies.",
+        "tags": [
+            "load-balancing",
+            "reverse-proxy",
+            "high-availability",
+            "health-checks",
+            "routing"
+        ]
+    },
+    {
+        "id": "lesson-09",
+        "slug": "scaling-out-and-statelessness",
+        "title": "Scaling Out: Statelessness & the Scaling Cube",
+        "level": "intermediate",
+        "order": 9,
+        "duration": 24,
+        "file": "intermediate/scaling-out-and-statelessness.md",
+        "summary": "Why stateless services are the key to horizontal scaling, where state should live, and the AKF Scale Cube’s three axes.",
+        "tags": [
+            "scalability",
+            "stateless",
+            "horizontal-scaling",
+            "scale-cube",
+            "architecture"
+        ]
+    },
+    {
+        "id": "lesson-10",
+        "slug": "database-replication",
+        "title": "Database Replication",
+        "level": "intermediate",
+        "order": 10,
+        "duration": 26,
+        "file": "intermediate/database-replication.md",
+        "summary": "Leader–follower replication, synchronous vs asynchronous, replication lag and read anomalies, and the hazards of failover.",
+        "tags": [
+            "replication",
+            "leader-follower",
+            "replication-lag",
+            "failover",
+            "high-availability"
+        ]
+    },
+    {
+        "id": "lesson-11",
+        "slug": "partitioning-and-sharding",
+        "title": "Partitioning (Sharding)",
+        "level": "intermediate",
+        "order": 11,
+        "duration": 28,
+        "file": "intermediate/partitioning-and-sharding.md",
+        "summary": "Range vs hash partitioning, consistent hashing and what it actually solves, hotspots, routing, and rebalancing.",
+        "tags": [
+            "partitioning",
+            "sharding",
+            "consistent-hashing",
+            "hotspots",
+            "rebalancing"
+        ]
+    },
+    {
+        "id": "lesson-12",
+        "slug": "consistency-models",
+        "title": "Consistency Models",
+        "level": "intermediate",
+        "order": 12,
+        "duration": 28,
+        "file": "intermediate/consistency-models.md",
+        "summary": "Strong (linearizable) vs eventual consistency, the useful middle grounds, and the crucial difference between linearizability and serializability.",
+        "tags": [
+            "consistency",
+            "linearizability",
+            "eventual-consistency",
+            "serializability",
+            "causal-consistency"
+        ]
+    },
+    {
+        "id": "lesson-13",
+        "slug": "cap-and-pacelc",
+        "title": "The CAP Theorem & PACELC",
+        "level": "intermediate",
+        "order": 13,
+        "duration": 26,
+        "file": "intermediate/cap-and-pacelc.md",
+        "summary": "The CAP theorem stated precisely (CP vs AP during a partition), why 'pick 2 of 3' misleads, and how PACELC adds the everyday latency-vs-consistency trade-off.",
+        "tags": [
+            "cap-theorem",
+            "pacelc",
+            "consistency",
+            "availability",
+            "partition-tolerance"
+        ]
+    },
+    {
+        "id": "lesson-14",
+        "slug": "messaging-and-event-streaming",
+        "title": "Messaging & Event Streaming",
+        "level": "intermediate",
+        "order": 14,
+        "duration": 28,
+        "file": "intermediate/messaging-and-event-streaming.md",
+        "summary": "Queues vs logs, delivery semantics, why exactly-once delivery is generally impossible (and what systems really provide), and backpressure.",
+        "tags": [
+            "messaging",
+            "queues",
+            "kafka",
+            "delivery-semantics",
+            "backpressure"
+        ]
+    },
+    {
+        "id": "lesson-15",
+        "slug": "idempotency-retries-and-timeouts",
+        "title": "Reliable Communication: Idempotency, Retries & Timeouts",
+        "level": "intermediate",
+        "order": 15,
+        "duration": 26,
+        "file": "intermediate/idempotency-retries-and-timeouts.md",
+        "summary": "Why a timeout leaves the outcome unknown, choosing timeouts, retries with exponential backoff and jitter, and idempotency keys for safe writes.",
+        "tags": [
+            "idempotency",
+            "retries",
+            "timeouts",
+            "backoff",
+            "reliability"
+        ]
+    },
+    {
+        "id": "lesson-16",
+        "slug": "rate-limiting-and-api-gateways",
+        "title": "Rate Limiting & API Gateways",
+        "level": "intermediate",
+        "order": 16,
+        "duration": 26,
+        "file": "intermediate/rate-limiting-and-api-gateways.md",
+        "summary": "Token bucket, leaky bucket, and window algorithms; responding with 429; and what an API gateway does at the edge.",
+        "tags": [
+            "rate-limiting",
+            "api-gateway",
+            "token-bucket",
+            "throttling",
+            "resilience"
+        ]
+    },
+    {
+        "id": "lesson-17",
+        "slug": "monoliths-vs-microservices",
+        "title": "Monoliths vs Microservices",
+        "level": "advanced",
+        "order": 17,
+        "duration": 26,
+        "file": "advanced/monoliths-vs-microservices.md",
+        "summary": "The real trade-offs, how to draw service boundaries, the distributed-monolith anti-pattern, and why starting with a monolith is common advice.",
+        "tags": [
+            "microservices",
+            "monolith",
+            "architecture",
+            "service-boundaries",
+            "trade-offs"
+        ]
+    },
+    {
+        "id": "lesson-18",
+        "slug": "resilience-patterns",
+        "title": "Resilience Patterns",
+        "level": "advanced",
+        "order": 18,
+        "duration": 26,
+        "file": "advanced/resilience-patterns.md",
+        "summary": "Containing partial failure with timeouts, circuit breakers, bulkheads, graceful degradation, load shedding, and service discovery.",
+        "tags": [
+            "resilience",
+            "circuit-breaker",
+            "bulkhead",
+            "graceful-degradation",
+            "service-discovery"
+        ]
+    },
+    {
+        "id": "lesson-19",
+        "slug": "distributed-transactions",
+        "title": "Distributed Transactions: Saga, 2PC & Outbox",
+        "level": "advanced",
+        "order": 19,
+        "duration": 28,
+        "file": "advanced/distributed-transactions.md",
+        "summary": "Why cross-service atomicity is hard, two-phase commit’s blocking cost, the saga pattern, and the transactional outbox for reliable events.",
+        "tags": [
+            "distributed-transactions",
+            "saga",
+            "two-phase-commit",
+            "outbox",
+            "consistency"
+        ]
+    },
+    {
+        "id": "lesson-20",
+        "slug": "consensus-and-coordination",
+        "title": "Consensus & Coordination",
+        "level": "advanced",
+        "order": 20,
+        "duration": 28,
+        "file": "advanced/consensus-and-coordination.md",
+        "summary": "What consensus is and why it's hard, quorums and the majority rule, how Raft elects a leader and replicates a log, and coordination services.",
+        "tags": [
+            "consensus",
+            "raft",
+            "paxos",
+            "quorum",
+            "coordination"
+        ]
+    },
+    {
+        "id": "lesson-21",
+        "slug": "designing-for-failure",
+        "title": "Designing for Failure",
+        "level": "advanced",
+        "order": 21,
+        "duration": 26,
+        "file": "advanced/designing-for-failure.md",
+        "summary": "Eliminating single points of failure with redundancy across failure domains, replication vs backups, and disaster recovery with RTO and RPO.",
+        "tags": [
+            "reliability",
+            "redundancy",
+            "failover",
+            "disaster-recovery",
+            "high-availability"
+        ]
+    },
+    {
+        "id": "lesson-22",
+        "slug": "observability",
+        "title": "Observability: Logs, Metrics & Traces",
+        "level": "advanced",
+        "order": 22,
+        "duration": 26,
+        "file": "advanced/observability.md",
+        "summary": "The three pillars — logs, metrics, and traces — the RED and USE methods, alerting on symptoms not causes, and OpenTelemetry.",
+        "tags": [
+            "observability",
+            "metrics",
+            "logging",
+            "tracing",
+            "monitoring"
+        ]
+    },
+    {
+        "id": "lesson-23",
+        "slug": "security-essentials",
+        "title": "Security Essentials",
+        "level": "advanced",
+        "order": 23,
+        "duration": 26,
+        "file": "advanced/security-essentials.md",
+        "summary": "Authentication vs authorization, encryption in transit and at rest, OAuth 2.0 and OIDC, least privilege, and avoiding classic security mistakes.",
+        "tags": [
+            "security",
+            "authentication",
+            "authorization",
+            "oauth",
+            "encryption"
+        ]
+    },
+    {
+        "id": "lesson-24",
+        "slug": "designing-a-system-end-to-end",
+        "title": "Capstone: Designing a System End to End",
+        "level": "advanced",
+        "order": 24,
+        "duration": 32,
+        "file": "advanced/designing-a-system-end-to-end.md",
+        "summary": "A repeatable framework — requirements, estimation, API, data, scaling, resilience, trade-offs — applied end to end to a URL shortener.",
+        "tags": [
+            "capstone",
+            "framework",
+            "case-study",
+            "trade-offs",
+            "interview"
+        ]
+    }
+]

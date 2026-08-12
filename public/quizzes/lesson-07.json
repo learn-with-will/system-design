@@ -1,0 +1,80 @@
+{
+  "id": "quiz-lesson-07",
+  "lessonId": "lesson-07",
+  "title": "Caching",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "In the cache-aside pattern, what happens on a cache miss?",
+      "options": [
+        { "id": "a", "text": "The request fails" },
+        { "id": "b", "text": "The application reads from the database, stores the result in the cache, and returns it" },
+        { "id": "c", "text": "The cache blocks all other reads" },
+        { "id": "d", "text": "The database is bypassed entirely" }
+      ],
+      "answer": "b",
+      "explanation": "On a miss, cache-aside reads the source (database), populates the cache, and returns the value, so subsequent reads hit the cache."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What is the main risk of write-back (write-behind) caching?",
+      "options": [
+        { "id": "a", "text": "Writes become very slow" },
+        { "id": "b", "text": "Data can be lost if the cache fails before flushing to the database" },
+        { "id": "c", "text": "The cache can never be read" },
+        { "id": "d", "text": "It disables eviction" }
+      ],
+      "answer": "b",
+      "explanation": "Write-back acknowledges the write after updating the cache and flushes to the database later, so a cache failure before the flush loses data. The upside is fast writes."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "What does an LRU eviction policy evict when the cache is full?",
+      "options": [
+        { "id": "a", "text": "The most recently used entry" },
+        { "id": "b", "text": "A random entry" },
+        { "id": "c", "text": "The entry unused for the longest time" },
+        { "id": "d", "text": "The largest entry" }
+      ],
+      "answer": "c",
+      "explanation": "LRU (Least Recently Used) drops the entry that has gone unused the longest, keeping recently accessed data available."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "A viral item's cache entry expires and thousands of requests miss at once, flooding the database. What is this called?",
+      "options": [
+        { "id": "a", "text": "A cache hit" },
+        { "id": "b", "text": "A cache stampede (thundering herd)" },
+        { "id": "c", "text": "Write amplification" },
+        { "id": "d", "text": "A partition" }
+      ],
+      "answer": "b",
+      "explanation": "Synchronized misses on a hot key create a cache stampede. Mitigate with TTL jitter, request coalescing, and serving slightly stale data during refresh."
+    },
+    {
+      "id": "q5",
+      "type": "multiple-choice",
+      "prompt": "Which are valid ways to handle cache staleness? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Set a TTL so entries expire" },
+        { "id": "b", "text": "Explicitly invalidate the entry when the data changes" },
+        { "id": "c", "text": "Use write-through to keep the cache fresh on every write" },
+        { "id": "d", "text": "Never write to the database again" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "TTLs, explicit invalidation, and write-through are the standard tools for bounding or eliminating staleness. Not writing to the database is not a real option."
+    },
+    {
+      "id": "q6",
+      "type": "fill-blank",
+      "prompt": "The fraction of reads served from the cache rather than the backing store is called the cache ______ ratio. (one word)",
+      "answer": ["hit"],
+      "explanation": "The cache hit ratio measures how often reads are served from cache; a higher ratio means more latency and load saved."
+    }
+  ]
+}

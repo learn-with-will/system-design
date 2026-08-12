@@ -1,0 +1,80 @@
+{
+  "id": "quiz-lesson-14",
+  "lessonId": "lesson-14",
+  "title": "Messaging & Event Streaming",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is a key difference between a message queue and an event log (like Kafka)?",
+      "options": [
+        { "id": "a", "text": "A queue keeps messages forever; a log deletes them immediately" },
+        { "id": "b", "text": "A queue removes a message once consumed; a log retains ordered messages that consumers read by offset and can replay" },
+        { "id": "c", "text": "A log can only have one consumer" },
+        { "id": "d", "text": "They are identical" }
+      ],
+      "answer": "b",
+      "explanation": "A queue removes each message on consume (workers compete); a log retains ordered messages so many consumers read independently by offset and can replay history."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What is the main downside of at-least-once delivery?",
+      "options": [
+        { "id": "a", "text": "Messages can be lost" },
+        { "id": "b", "text": "The same message may be delivered more than once (duplicates)" },
+        { "id": "c", "text": "It is slower than exactly-once" },
+        { "id": "d", "text": "It cannot be used with queues" }
+      ],
+      "answer": "b",
+      "explanation": "At-least-once never loses messages, but a lost acknowledgment can cause redelivery, so consumers may see duplicates and must handle them idempotently."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "Why is true exactly-once DELIVERY generally impossible in a distributed system?",
+      "options": [
+        { "id": "a", "text": "Because brokers are too slow" },
+        { "id": "b", "text": "Because a sender with no acknowledgment can't tell if the message or the ack was lost, so it must risk loss or duplication" },
+        { "id": "c", "text": "Because messages are encrypted" },
+        { "id": "d", "text": "It is actually always possible" }
+      ],
+      "answer": "b",
+      "explanation": "The ambiguity of a missing acknowledgment forces a choice between at-most-once (risk loss) and at-least-once (risk duplicates). Exactly-once delivery can't be guaranteed."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "How do real systems achieve 'exactly-once processing'?",
+      "options": [
+        { "id": "a", "text": "By using at-most-once delivery" },
+        { "id": "b", "text": "By combining at-least-once delivery with idempotent (or deduplicating) consumers" },
+        { "id": "c", "text": "By never retrying" },
+        { "id": "d", "text": "By disabling acknowledgments" }
+      ],
+      "answer": "b",
+      "explanation": "At-least-once delivery plus an idempotent consumer (or dedup by message id) means processing a duplicate has no extra effect — 'effectively once.'"
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "Does Kafka's 'exactly-once semantics' guarantee exactly-once end-to-end to an external database or email service?",
+      "options": [
+        { "id": "a", "text": "Yes, automatically everywhere" },
+        { "id": "b", "text": "No — it holds within Kafka; writing to an external system still needs an idempotent sink" },
+        { "id": "c", "text": "Yes, but only for reads" },
+        { "id": "d", "text": "No, Kafka has no exactly-once features at all" }
+      ],
+      "answer": "b",
+      "explanation": "Kafka's exactly-once (idempotent producer + transactions) applies within Kafka. End-to-end exactly-once to an external sink still requires that sink to be idempotent."
+    },
+    {
+      "id": "q6",
+      "type": "fill-blank",
+      "prompt": "Coping when producers push faster than consumers can handle is called ______. (one word)",
+      "answer": ["backpressure"],
+      "explanation": "Backpressure covers buffering, scaling consumers, or slowing/rejecting producers. Unbounded queues hide overload, so monitor consumer lag and cap growth."
+    }
+  ]
+}

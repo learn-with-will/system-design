@@ -1,0 +1,80 @@
+{
+  "id": "quiz-lesson-08",
+  "lessonId": "lesson-08",
+  "title": "Load Balancing & Reverse Proxies",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "Which benefits does a load balancer provide? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Spreading load across multiple servers (scalability)" },
+        { "id": "b", "text": "Routing around a failed server (availability)" },
+        { "id": "c", "text": "Sending requests to less-busy or closer servers (latency)" },
+        { "id": "d", "text": "Guaranteeing data is never lost" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "A load balancer gives scalability, availability, and better latency. Durability of data is a storage concern, not something a load balancer provides."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What distinguishes a Layer 7 load balancer from a Layer 4 one?",
+      "options": [
+        { "id": "a", "text": "Layer 7 is always slower and never used" },
+        { "id": "b", "text": "Layer 7 understands the application protocol and can route on HTTP path, host, headers, or cookies" },
+        { "id": "c", "text": "Layer 7 only balances UDP traffic" },
+        { "id": "d", "text": "Layer 7 cannot terminate TLS" }
+      ],
+      "answer": "b",
+      "explanation": "Layer 4 routes on IP and port without reading content; Layer 7 reads the application protocol (HTTP), enabling content-based routing and TLS termination, at the cost of more processing."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "Requests vary widely in duration (fast lookups and slow reports). Which algorithm balances them best?",
+      "options": [
+        { "id": "a", "text": "Round-robin" },
+        { "id": "b", "text": "Least-connections" },
+        { "id": "c", "text": "Random with no health checks" },
+        { "id": "d", "text": "First server always" }
+      ],
+      "answer": "b",
+      "explanation": "Least-connections sends each new request to the least-busy server, smoothing uneven load that round-robin would distribute blindly."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "What does a health check let a load balancer do?",
+      "options": [
+        { "id": "a", "text": "Encrypt traffic" },
+        { "id": "b", "text": "Automatically remove unhealthy servers from rotation and route around failures" },
+        { "id": "c", "text": "Increase server memory" },
+        { "id": "d", "text": "Cache database queries" }
+      ],
+      "answer": "b",
+      "explanation": "Periodic health checks detect failing servers so the load balancer stops sending them traffic, turning a crash into a non-event for users."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "Why is relying on sticky sessions often a design smell?",
+      "options": [
+        { "id": "a", "text": "Sticky sessions are illegal" },
+        { "id": "b", "text": "They pin users to one server, so a failure loses their state and load can't rebalance freely" },
+        { "id": "c", "text": "They make servers faster" },
+        { "id": "d", "text": "They only work with Layer 4" }
+      ],
+      "answer": "b",
+      "explanation": "Stickiness papers over server-side state. Making servers stateless (shared session storage) lets any server serve any user and survive failures."
+    },
+    {
+      "id": "q6",
+      "type": "fill-blank",
+      "prompt": "A component whose failure takes down the whole system is called a single ______ of failure. (one word)",
+      "answer": ["point"],
+      "explanation": "A single point of failure (SPOF) is why production runs redundant load balancers — the component that provides availability must not be able to take the system down."
+    }
+  ]
+}

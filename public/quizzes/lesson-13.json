@@ -1,0 +1,86 @@
+{
+  "id": "quiz-lesson-13",
+  "lessonId": "lesson-13",
+  "title": "The CAP Theorem & PACELC",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What does the CAP theorem actually say?",
+      "options": [
+        { "id": "a", "text": "A distributed system can only ever have two of consistency, availability, and partition tolerance" },
+        { "id": "b", "text": "During a network partition, a distributed system must choose between consistency and availability" },
+        { "id": "c", "text": "Consistency and availability are impossible together, always" },
+        { "id": "d", "text": "Partitions never happen in practice" }
+      ],
+      "answer": "b",
+      "explanation": "CAP is specifically about behavior during a partition: you must sacrifice either consistency or availability while partitioned. The rest of the time you can have both."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "Why is 'pick 2 of 3' a misleading way to state CAP?",
+      "options": [
+        { "id": "a", "text": "Because consistency is never achievable" },
+        { "id": "b", "text": "Because partition tolerance isn't optional for a distributed system, so the real choice is C vs A during a partition" },
+        { "id": "c", "text": "Because availability is always chosen" },
+        { "id": "d", "text": "Because there are actually four properties" }
+      ],
+      "answer": "b",
+      "explanation": "Networks fail, so a distributed system must tolerate partitions. You don't trade away P; you choose C or A when a partition occurs."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "During a partition, how does an AP system behave?",
+      "options": [
+        { "id": "a", "text": "It refuses requests to stay consistent" },
+        { "id": "b", "text": "It answers requests from reachable nodes, possibly returning stale data" },
+        { "id": "c", "text": "It shuts down entirely" },
+        { "id": "d", "text": "It guarantees the latest data on every read" }
+      ],
+      "answer": "b",
+      "explanation": "An AP system favors availability: it answers from whatever nodes are reachable, accepting possibly stale data, and reconciles once the partition heals."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "A teammate says 'our distributed database is CA — consistent and available, no partition tolerance.' What's wrong?",
+      "options": [
+        { "id": "a", "text": "Nothing, CA is the best choice" },
+        { "id": "b", "text": "You can't opt out of partitions in a distributed system, so CA isn't a meaningful choice — you must pick CP or AP" },
+        { "id": "c", "text": "CA means the system is always down" },
+        { "id": "d", "text": "CA only applies to single-node caches" }
+      ],
+      "answer": "b",
+      "explanation": "Partitions are unavoidable in a distributed system, so 'giving up P' isn't real. The system must decide CP or AP for partition behavior."
+    },
+    {
+      "id": "q5",
+      "type": "single-choice",
+      "prompt": "What does PACELC add beyond CAP?",
+      "options": [
+        { "id": "a", "text": "It removes the need to choose during a partition" },
+        { "id": "b", "text": "It adds the normal-operation trade-off: Else (no partition), choose Latency or Consistency" },
+        { "id": "c", "text": "It proves partitions never happen" },
+        { "id": "d", "text": "It says availability is always best" }
+      ],
+      "answer": "b",
+      "explanation": "PACELC: if Partition, choose Availability or Consistency; Else, choose Latency or Consistency — capturing that strong consistency costs latency even without partitions."
+    },
+    {
+      "id": "q6",
+      "type": "single-choice",
+      "prompt": "In the CAP theorem, what does 'C' (consistency) specifically mean?",
+      "options": [
+        { "id": "a", "text": "The ACID integrity constraints of a transaction" },
+        { "id": "b", "text": "Linearizability — every read sees the most recent write" },
+        { "id": "c", "text": "That data is encrypted" },
+        { "id": "d", "text": "That the cache is warm" }
+      ],
+      "answer": "b",
+      "explanation": "CAP's C is linearizability, a recency guarantee — distinct from ACID's C, which is about application integrity constraints."
+    }
+  ]
+}

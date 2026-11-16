@@ -1,0 +1,3900 @@
+[
+  {
+    "id": "foundations-01",
+    "topic": "foundations",
+    "lesson": "functional-vs-non-functional-requirements",
+    "type": "single-choice",
+    "prompt": "Which of these is a non-functional requirement?",
+    "explanation": "A latency target describes how well the system must perform, not what feature it provides, so it is a non-functional requirement. The others are features (functional requirements).",
+    "options": [
+      {
+        "id": "a",
+        "text": "A user can shorten a long URL"
+      },
+      {
+        "id": "b",
+        "text": "The redirect must complete in under 100 milliseconds"
+      },
+      {
+        "id": "c",
+        "text": "A user can delete their account"
+      },
+      {
+        "id": "d",
+        "text": "The system emails a receipt after purchase"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "foundations-02",
+    "topic": "foundations",
+    "lesson": "reliability-scalability-maintainability",
+    "type": "single-choice",
+    "prompt": "What is the difference between a fault and a failure?",
+    "explanation": "A fault is a single component going wrong. A failure is the system as a whole failing to do its job. Fault-tolerant design keeps faults from becoming failures.",
+    "options": [
+      {
+        "id": "a",
+        "text": "They mean the same thing"
+      },
+      {
+        "id": "b",
+        "text": "A fault is a user error; a failure is a bug"
+      },
+      {
+        "id": "c",
+        "text": "A fault is one component misbehaving; a failure is the whole system not delivering its service"
+      },
+      {
+        "id": "d",
+        "text": "A fault happens in testing; a failure happens in production"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "foundations-03",
+    "topic": "foundations",
+    "lesson": "reliability-scalability-maintainability",
+    "type": "multiple-choice",
+    "prompt": "Which three properties does Designing Data-Intensive Applications use to frame good systems? Select all that apply.",
+    "explanation": "DDIA frames system design around reliability, scalability, and maintainability. Profitability is a business concern, not one of these three.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reliability"
+      },
+      {
+        "id": "b",
+        "text": "Scalability"
+      },
+      {
+        "id": "c",
+        "text": "Maintainability"
+      },
+      {
+        "id": "d",
+        "text": "Profitability"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "foundations-04",
+    "topic": "foundations",
+    "lesson": "the-nature-of-trade-offs",
+    "type": "fill-blank",
+    "prompt": "The single component that limits the whole system's performance is called the ______. (one word)",
+    "explanation": "The bottleneck is the limiting component; improving anything else won't help until you address it.",
+    "answer": [
+      "bottleneck"
+    ]
+  },
+  {
+    "id": "foundations-05",
+    "topic": "foundations",
+    "lesson": "what-is-system-design",
+    "type": "single-choice",
+    "prompt": "A team with zero users builds sharded databases and a dozen microservices 'to be scalable.' What is the main problem?",
+    "explanation": "Scalability trades against simplicity, maintainability, and cost. Designing for load you don't have buys complexity you must pay for now.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nothing — you can never be too scalable"
+      },
+      {
+        "id": "b",
+        "text": "They traded away simplicity, maintainability, and cost to solve a problem they don't have yet"
+      },
+      {
+        "id": "c",
+        "text": "Sharding always loses data"
+      },
+      {
+        "id": "d",
+        "text": "Microservices cannot scale"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "foundations-06",
+    "topic": "foundations",
+    "lesson": "what-is-system-design",
+    "type": "match-pair",
+    "prompt": "Match each term to its meaning.",
+    "explanation": "Latency is per-request time; throughput is volume over time; reliability is correctness under faults; maintainability is the human cost of running and evolving the system.",
+    "pairs": [
+      {
+        "left": "Latency",
+        "right": "How long a single request takes"
+      },
+      {
+        "left": "Throughput",
+        "right": "How many requests are handled per unit of time"
+      },
+      {
+        "left": "Reliability",
+        "right": "Keeping working correctly when faults occur"
+      },
+      {
+        "left": "Maintainability",
+        "right": "How easily people can operate and change the system"
+      }
+    ]
+  },
+  {
+    "id": "foundations-07",
+    "topic": "foundations",
+    "lesson": "latency-vs-throughput",
+    "type": "single-choice",
+    "prompt": "Which statement best captures the difference between latency and throughput?",
+    "explanation": "Latency is per-request time; throughput is volume over time. Adding parallel workers can raise throughput without changing per-request latency.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Latency is requests per second; throughput is time per request"
+      },
+      {
+        "id": "b",
+        "text": "Latency is how long one request takes; throughput is how many requests complete per unit of time"
+      },
+      {
+        "id": "c",
+        "text": "They are two names for the same measurement"
+      },
+      {
+        "id": "d",
+        "text": "Latency applies to reads; throughput applies to writes"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "foundations-08",
+    "topic": "foundations",
+    "lesson": "tail-latency-and-percentiles",
+    "type": "single-choice",
+    "prompt": "Why do engineers report p99 latency instead of the average?",
+    "explanation": "A few very slow requests drag the average in a misleading way. p99 shows what the slowest 1% of requests actually experience.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The average is harder to compute"
+      },
+      {
+        "id": "b",
+        "text": "p99 is always smaller, so it looks better"
+      },
+      {
+        "id": "c",
+        "text": "The average hides the slow tail that real users experience"
+      },
+      {
+        "id": "d",
+        "text": "Percentiles are required by law"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "foundations-09",
+    "topic": "foundations",
+    "lesson": "availability-and-the-nines",
+    "type": "single-choice",
+    "prompt": "Approximately how much downtime per year does 99.99% availability (four nines) allow?",
+    "explanation": "Four nines allows roughly 52.6 minutes of downtime per year. Three nines is ~8.8 hours; five nines is ~5.3 minutes.",
+    "options": [
+      {
+        "id": "a",
+        "text": "About 8.8 hours"
+      },
+      {
+        "id": "b",
+        "text": "About 52.6 minutes"
+      },
+      {
+        "id": "c",
+        "text": "About 5.3 minutes"
+      },
+      {
+        "id": "d",
+        "text": "About 3.65 days"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "foundations-10",
+    "topic": "foundations",
+    "lesson": "sli-slo-and-sla",
+    "type": "match-pair",
+    "prompt": "Match each reliability term to its meaning.",
+    "explanation": "The SLI is measured, the SLO is the target you hold it to, the SLA is the contractual promise (usually looser than the SLO), and the error budget is 100% minus the SLO.",
+    "pairs": [
+      {
+        "left": "SLI",
+        "right": "A measured indicator of service quality"
+      },
+      {
+        "left": "SLO",
+        "right": "The internal target for an indicator"
+      },
+      {
+        "left": "SLA",
+        "right": "A customer contract with consequences"
+      },
+      {
+        "left": "Error budget",
+        "right": "The amount of failure the SLO permits"
+      }
+    ]
+  },
+  {
+    "id": "foundations-11",
+    "topic": "foundations",
+    "lesson": "latency-vs-throughput",
+    "type": "multiple-choice",
+    "prompt": "Which are true of scaling out (horizontal scaling)? Select all that apply.",
+    "explanation": "Scaling out adds machines, avoids a single-machine ceiling, and can be fault-tolerant — but it brings distributed-systems challenges. Consistency is not free; it is one of those challenges.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It spreads load across more machines"
+      },
+      {
+        "id": "b",
+        "text": "It can be made fault-tolerant with no single machine as a hard ceiling"
+      },
+      {
+        "id": "c",
+        "text": "It introduces distributed-systems complexity"
+      },
+      {
+        "id": "d",
+        "text": "It always guarantees strong consistency for free"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "foundations-12",
+    "topic": "foundations",
+    "lesson": "sli-slo-and-sla",
+    "type": "fill-blank",
+    "prompt": "If your SLO is 99.9% success, the 0.1% of allowed failure is called your ______ ______. (two words)",
+    "explanation": "The error budget is 100% minus the SLO — the amount of failure you are allowed to spend on risk and change.",
+    "answer": [
+      "error budget"
+    ]
+  },
+  {
+    "id": "estimation-and-capacity-01",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-qps-and-bandwidth",
+    "type": "single-choice",
+    "prompt": "Approximately how many seconds are in a day?",
+    "explanation": "A day is 24 x 60 x 60 = 86,400 seconds, roughly 10^5 — a handy shortcut for turning per-day numbers into per-second (QPS).",
+    "options": [
+      {
+        "id": "a",
+        "text": "~3,600"
+      },
+      {
+        "id": "b",
+        "text": "~86,400"
+      },
+      {
+        "id": "c",
+        "text": "~1,000,000"
+      },
+      {
+        "id": "d",
+        "text": "~10,000"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "estimation-and-capacity-02",
+    "topic": "estimation-and-capacity",
+    "lesson": "latency-numbers-every-engineer-should-know",
+    "type": "single-choice",
+    "prompt": "What is the main lesson of the classic latency numbers?",
+    "explanation": "The ratios matter: memory (~100 ns) << SSD (~tens of microseconds) << disk seek (~10 ms), and a cross-continent round trip (~150 ms) dominates. That is why we cache and use CDNs.",
+    "options": [
+      {
+        "id": "a",
+        "text": "All storage is about equally fast"
+      },
+      {
+        "id": "b",
+        "text": "Memory is far faster than SSD, which is far faster than disk, and a cross-continent round trip dwarfs local work"
+      },
+      {
+        "id": "c",
+        "text": "Network calls are always faster than memory access"
+      },
+      {
+        "id": "d",
+        "text": "Disk seeks are measured in nanoseconds"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "estimation-and-capacity-03",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-qps-and-bandwidth",
+    "type": "single-choice",
+    "prompt": "A service handles 40 writes/second. Assuming a 100:1 read-to-write ratio, what is the approximate read QPS?",
+    "explanation": "read QPS = write QPS x read:write ratio = 40 x 100 = ~4,000 reads/second.",
+    "options": [
+      {
+        "id": "a",
+        "text": "~0.4"
+      },
+      {
+        "id": "b",
+        "text": "~140"
+      },
+      {
+        "id": "c",
+        "text": "~4,000"
+      },
+      {
+        "id": "d",
+        "text": "~400,000"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "estimation-and-capacity-04",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-qps-and-bandwidth",
+    "type": "fill-blank",
+    "prompt": "Because traffic is spiky, you should always size a system for its ______ load, not its average. (one word)",
+    "explanation": "Sizing for the average under-provisions; apply a peak factor (often 2-3x) and design for the peak.",
+    "answer": [
+      "peak"
+    ]
+  },
+  {
+    "id": "estimation-and-capacity-05",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-storage-and-memory",
+    "type": "multiple-choice",
+    "prompt": "Which factors belong in a storage estimate? Select all that apply.",
+    "explanation": "Storage = items x size per item x retention x replication factor. Forgetting replication is a common way to undercount by a factor of 2-3.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Number of items"
+      },
+      {
+        "id": "b",
+        "text": "Size per item"
+      },
+      {
+        "id": "c",
+        "text": "Retention (how long you keep it)"
+      },
+      {
+        "id": "d",
+        "text": "Replication factor (number of copies)"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  {
+    "id": "estimation-and-capacity-06",
+    "topic": "estimation-and-capacity",
+    "lesson": "powers-of-two-and-data-units",
+    "type": "single-choice",
+    "prompt": "What makes a back-of-the-envelope estimate trustworthy and defensible?",
+    "explanation": "The value is order-of-magnitude, not precise. Stated assumptions are what let others verify and challenge the estimate.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reporting the number to several decimal places"
+      },
+      {
+        "id": "b",
+        "text": "Stating the assumptions behind it so others can check them"
+      },
+      {
+        "id": "c",
+        "text": "Using the largest possible numbers"
+      },
+      {
+        "id": "d",
+        "text": "Running the real system first"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-01",
+    "topic": "networking-and-apis",
+    "lesson": "packets-and-the-ip-layer",
+    "type": "single-choice",
+    "prompt": "Which best describes what IP guarantees?",
+    "explanation": "IP handles addressing and routing but is best-effort. Reliability and ordering are added by TCP on top of IP.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reliable, ordered delivery of every packet"
+      },
+      {
+        "id": "b",
+        "text": "Addressing and routing on a best-effort basis, with no delivery guarantee"
+      },
+      {
+        "id": "c",
+        "text": "Encryption of all traffic"
+      },
+      {
+        "id": "d",
+        "text": "That packets arrive exactly once"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-02",
+    "topic": "networking-and-apis",
+    "lesson": "tcp-vs-udp",
+    "type": "single-choice",
+    "prompt": "When is UDP a better choice than TCP?",
+    "explanation": "UDP is connectionless and low-overhead. For live media, delivering on time beats delivering everything, so a lost packet is skipped rather than resent.",
+    "options": [
+      {
+        "id": "a",
+        "text": "When every byte must arrive in order (e.g., a file download)"
+      },
+      {
+        "id": "b",
+        "text": "When timeliness matters more than guaranteed delivery (e.g., live video)"
+      },
+      {
+        "id": "c",
+        "text": "When you need automatic retransmission of lost data"
+      },
+      {
+        "id": "d",
+        "text": "When you need a reliable connection handshake"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-03",
+    "topic": "networking-and-apis",
+    "lesson": "tls-and-https",
+    "type": "multiple-choice",
+    "prompt": "What does TLS add on top of HTTP? Select all that apply.",
+    "explanation": "TLS provides confidentiality, integrity, and authentication. It does not change how packets are routed.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Confidentiality (encryption)"
+      },
+      {
+        "id": "b",
+        "text": "Integrity (tamper detection)"
+      },
+      {
+        "id": "c",
+        "text": "Authentication of the server via a certificate"
+      },
+      {
+        "id": "d",
+        "text": "Faster routing of packets"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "networking-and-apis-04",
+    "topic": "networking-and-apis",
+    "lesson": "dns-resolution",
+    "type": "fill-blank",
+    "prompt": "DNS answers are stored for a period defined by their ______, so most lookups are served from cache. (acronym or word)",
+    "explanation": "The TTL (time-to-live) controls how long a DNS answer is cached before it must be looked up again.",
+    "answer": [
+      "ttl",
+      "time-to-live",
+      "time to live"
+    ]
+  },
+  {
+    "id": "networking-and-apis-05",
+    "topic": "networking-and-apis",
+    "lesson": "packets-and-the-ip-layer",
+    "type": "single-choice",
+    "prompt": "A service makes 10 sequential calls to a database across an ocean, each a ~100 ms round trip. Why is this slow regardless of database speed?",
+    "explanation": "Ten sequential round trips add up to ~1 second no matter how fast the database is. Batch the calls or co-locate the components.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Databases are inherently slow"
+      },
+      {
+        "id": "b",
+        "text": "Latency is dominated by the number of round trips, so 10 x ~100 ms = ~1 second of pure network time"
+      },
+      {
+        "id": "c",
+        "text": "TCP encrypts each call"
+      },
+      {
+        "id": "d",
+        "text": "UDP would lose the packets"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-06",
+    "topic": "networking-and-apis",
+    "lesson": "content-delivery-networks",
+    "type": "single-choice",
+    "prompt": "How does a CDN reduce latency for a global audience?",
+    "explanation": "A CDN serves cached content from an edge location close to the user, turning a ~150 ms trip to the origin into a few milliseconds.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It compresses the database"
+      },
+      {
+        "id": "b",
+        "text": "It caches content on edge servers near users, so requests reach a nearby edge instead of a distant origin"
+      },
+      {
+        "id": "c",
+        "text": "It replaces TCP with UDP"
+      },
+      {
+        "id": "d",
+        "text": "It removes the need for DNS"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-07",
+    "topic": "networking-and-apis",
+    "lesson": "rest-and-resource-modeling",
+    "type": "multiple-choice",
+    "prompt": "Which of these HTTP methods are idempotent? Select all that apply.",
+    "explanation": "GET, PUT, and DELETE are idempotent — repeating them has the same effect as doing them once. POST is not idempotent.",
+    "options": [
+      {
+        "id": "a",
+        "text": "GET"
+      },
+      {
+        "id": "b",
+        "text": "PUT"
+      },
+      {
+        "id": "c",
+        "text": "DELETE"
+      },
+      {
+        "id": "d",
+        "text": "POST"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "networking-and-apis-08",
+    "topic": "networking-and-apis",
+    "lesson": "rest-and-resource-modeling",
+    "type": "single-choice",
+    "prompt": "What does it mean that GET is a 'safe' method?",
+    "explanation": "A safe method is read-only. GET (and HEAD) retrieve data without changing server state.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It encrypts the request"
+      },
+      {
+        "id": "b",
+        "text": "It is read-only and does not change server state"
+      },
+      {
+        "id": "c",
+        "text": "It cannot fail"
+      },
+      {
+        "id": "d",
+        "text": "It requires authentication"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-09",
+    "topic": "networking-and-apis",
+    "lesson": "api-pagination-and-versioning",
+    "type": "single-choice",
+    "prompt": "Why does a POST that charges a customer's card need an idempotency key?",
+    "explanation": "Because POST is not idempotent, a retry could create a second charge. An idempotency key lets the server return the original result instead of acting again.",
+    "options": [
+      {
+        "id": "a",
+        "text": "POST is slower than GET"
+      },
+      {
+        "id": "b",
+        "text": "POST is not idempotent, so a network retry could charge twice; the key lets the server recognize the retry"
+      },
+      {
+        "id": "c",
+        "text": "Idempotency keys encrypt the payment"
+      },
+      {
+        "id": "d",
+        "text": "It is required by HTTP"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-10",
+    "topic": "networking-and-apis",
+    "lesson": "rpc-and-grpc",
+    "type": "match-pair",
+    "prompt": "Match each API style to what it is best suited for.",
+    "explanation": "REST suits public resource CRUD, gRPC suits efficient internal RPC, and GraphQL lets clients request precisely the data they want.",
+    "pairs": [
+      {
+        "left": "REST",
+        "right": "Public CRUD APIs over resources"
+      },
+      {
+        "left": "gRPC",
+        "right": "Fast internal service-to-service calls"
+      },
+      {
+        "left": "GraphQL",
+        "right": "Rich clients fetching exactly the fields they need"
+      }
+    ]
+  },
+  {
+    "id": "networking-and-apis-11",
+    "topic": "networking-and-apis",
+    "lesson": "rest-and-resource-modeling",
+    "type": "single-choice",
+    "prompt": "A client requests a user that does not exist. What should the API return?",
+    "explanation": "404 Not Found precisely communicates that the resource doesn't exist. Returning 200 hides the failure and confuses clients, caches, and monitoring.",
+    "options": [
+      {
+        "id": "a",
+        "text": "200 OK with an empty body"
+      },
+      {
+        "id": "b",
+        "text": "404 Not Found"
+      },
+      {
+        "id": "c",
+        "text": "500 Internal Server Error"
+      },
+      {
+        "id": "d",
+        "text": "201 Created"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "networking-and-apis-12",
+    "topic": "networking-and-apis",
+    "lesson": "api-pagination-and-versioning",
+    "type": "single-choice",
+    "prompt": "Why is cursor (keyset) pagination usually better than offset pagination for very large, changing datasets?",
+    "explanation": "Deep offsets get slower the further you page and shift when items are inserted. A cursor points to where you left off, staying fast and stable.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It returns more results per page"
+      },
+      {
+        "id": "b",
+        "text": "It stays fast and stable as data grows and changes, while deep offsets get slow and shift"
+      },
+      {
+        "id": "c",
+        "text": "It does not require a database"
+      },
+      {
+        "id": "d",
+        "text": "It encrypts the results"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-01",
+    "topic": "storage-and-caching",
+    "lesson": "relational-databases-and-acid",
+    "type": "single-choice",
+    "prompt": "What does the 'A' in ACID guarantee?",
+    "explanation": "Atomicity means a transaction fully succeeds or fully fails — a half-completed transfer never persists.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Availability — the database is always up"
+      },
+      {
+        "id": "b",
+        "text": "Atomicity — a transaction is all-or-nothing"
+      },
+      {
+        "id": "c",
+        "text": "Anonymity — data is encrypted"
+      },
+      {
+        "id": "d",
+        "text": "Accuracy — queries are always correct"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-02",
+    "topic": "storage-and-caching",
+    "lesson": "nosql-data-models",
+    "type": "match-pair",
+    "prompt": "Match each NoSQL family to what it is best at.",
+    "explanation": "Each NoSQL family targets a data shape: key-value for lookups, document for whole records, wide-column for write-heavy large tables, and graph for relationships.",
+    "pairs": [
+      {
+        "left": "Key-value",
+        "right": "Ultra-fast lookups by a single key"
+      },
+      {
+        "left": "Document",
+        "right": "Flexible, self-contained records read as a whole"
+      },
+      {
+        "left": "Wide-column",
+        "right": "Very high write volume over large tables"
+      },
+      {
+        "left": "Graph",
+        "right": "Relationship-heavy queries and traversals"
+      }
+    ]
+  },
+  {
+    "id": "storage-and-caching-03",
+    "topic": "storage-and-caching",
+    "lesson": "choosing-storage-by-access-patterns",
+    "type": "single-choice",
+    "prompt": "Is the claim 'SQL databases can't scale, only NoSQL can' accurate?",
+    "explanation": "Relational databases scale with replicas and partitioning (and distributed SQL); NoSQL scales by giving up features like joins and multi-key transactions. The difference is trade-offs, not a hard limit.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, relational databases cannot scale at all"
+      },
+      {
+        "id": "b",
+        "text": "No — it's an oversimplification; they make different trade-offs"
+      },
+      {
+        "id": "c",
+        "text": "Yes, NoSQL is always faster"
+      },
+      {
+        "id": "d",
+        "text": "No — NoSQL can never scale"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-04",
+    "topic": "storage-and-caching",
+    "lesson": "relational-databases-and-acid",
+    "type": "single-choice",
+    "prompt": "You need multi-row transactions and complex joins for an orders-and-payments feature. Which fits best?",
+    "explanation": "Money and multi-row integrity call for ACID transactions and joins, which relational databases provide natively.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A key-value store"
+      },
+      {
+        "id": "b",
+        "text": "A relational (SQL) database"
+      },
+      {
+        "id": "c",
+        "text": "A graph database"
+      },
+      {
+        "id": "d",
+        "text": "A CDN"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-05",
+    "topic": "storage-and-caching",
+    "lesson": "choosing-storage-by-access-patterns",
+    "type": "fill-blank",
+    "prompt": "Using more than one type of database in a single system, each chosen for a workload, is called ______ persistence. (one word)",
+    "explanation": "Polyglot persistence means picking the right store per workload rather than forcing everything into one database.",
+    "answer": [
+      "polyglot"
+    ]
+  },
+  {
+    "id": "storage-and-caching-06",
+    "topic": "storage-and-caching",
+    "lesson": "acid-vs-base",
+    "type": "single-choice",
+    "prompt": "In ACID, whose responsibility is the 'C' (consistency) largely considered to be?",
+    "explanation": "As DDIA notes, the C in ACID is largely the application's responsibility: it defines the invariants, and the database enforces the constraints it's told about.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The network's"
+      },
+      {
+        "id": "b",
+        "text": "The application's — the database enforces the constraints you declare"
+      },
+      {
+        "id": "c",
+        "text": "The operating system's"
+      },
+      {
+        "id": "d",
+        "text": "Nobody's; it is automatic"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-07",
+    "topic": "storage-and-caching",
+    "lesson": "cache-read-patterns",
+    "type": "single-choice",
+    "prompt": "In the cache-aside pattern, what happens on a cache miss?",
+    "explanation": "On a miss, cache-aside reads the source (database), populates the cache, and returns the value, so subsequent reads hit the cache.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The request fails"
+      },
+      {
+        "id": "b",
+        "text": "The application reads from the database, stores the result in the cache, and returns it"
+      },
+      {
+        "id": "c",
+        "text": "The cache blocks all other reads"
+      },
+      {
+        "id": "d",
+        "text": "The database is bypassed entirely"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-08",
+    "topic": "storage-and-caching",
+    "lesson": "cache-write-patterns",
+    "type": "single-choice",
+    "prompt": "What is the main risk of write-back (write-behind) caching?",
+    "explanation": "Write-back acknowledges the write after updating the cache and flushes to the database later, so a cache failure before the flush loses data. The upside is fast writes.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Writes become very slow"
+      },
+      {
+        "id": "b",
+        "text": "Data can be lost if the cache fails before flushing to the database"
+      },
+      {
+        "id": "c",
+        "text": "The cache can never be read"
+      },
+      {
+        "id": "d",
+        "text": "It disables eviction"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-09",
+    "topic": "storage-and-caching",
+    "lesson": "cache-eviction-and-ttl",
+    "type": "single-choice",
+    "prompt": "What does an LRU eviction policy evict when the cache is full?",
+    "explanation": "LRU (Least Recently Used) drops the entry that has gone unused the longest, keeping recently accessed data available.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The most recently used entry"
+      },
+      {
+        "id": "b",
+        "text": "A random entry"
+      },
+      {
+        "id": "c",
+        "text": "The entry unused for the longest time"
+      },
+      {
+        "id": "d",
+        "text": "The largest entry"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "storage-and-caching-10",
+    "topic": "storage-and-caching",
+    "lesson": "cache-invalidation-and-stampedes",
+    "type": "single-choice",
+    "prompt": "A viral item's cache entry expires and thousands of requests miss at once, flooding the database. What is this called?",
+    "explanation": "Synchronized misses on a hot key create a cache stampede. Mitigate with TTL jitter, request coalescing, and serving slightly stale data during refresh.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A cache hit"
+      },
+      {
+        "id": "b",
+        "text": "A cache stampede (thundering herd)"
+      },
+      {
+        "id": "c",
+        "text": "Write amplification"
+      },
+      {
+        "id": "d",
+        "text": "A partition"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "storage-and-caching-11",
+    "topic": "storage-and-caching",
+    "lesson": "cache-invalidation-and-stampedes",
+    "type": "multiple-choice",
+    "prompt": "Which are valid ways to handle cache staleness? Select all that apply.",
+    "explanation": "TTLs, explicit invalidation, and write-through are the standard tools for bounding or eliminating staleness. Not writing to the database is not a real option.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set a TTL so entries expire"
+      },
+      {
+        "id": "b",
+        "text": "Explicitly invalidate the entry when the data changes"
+      },
+      {
+        "id": "c",
+        "text": "Use write-through to keep the cache fresh on every write"
+      },
+      {
+        "id": "d",
+        "text": "Never write to the database again"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "storage-and-caching-12",
+    "topic": "storage-and-caching",
+    "lesson": "caching-fundamentals-and-tiers",
+    "type": "fill-blank",
+    "prompt": "The fraction of reads served from the cache rather than the backing store is called the cache ______ ratio. (one word)",
+    "explanation": "The cache hit ratio measures how often reads are served from cache; a higher ratio means more latency and load saved.",
+    "answer": [
+      "hit"
+    ]
+  },
+  {
+    "id": "scaling-and-traffic-01",
+    "topic": "scaling-and-traffic",
+    "lesson": "load-balancing-fundamentals",
+    "type": "multiple-choice",
+    "prompt": "Which benefits does a load balancer provide? Select all that apply.",
+    "explanation": "A load balancer gives scalability, availability, and better latency. Durability of data is a storage concern, not something a load balancer provides.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Spreading load across multiple servers (scalability)"
+      },
+      {
+        "id": "b",
+        "text": "Routing around a failed server (availability)"
+      },
+      {
+        "id": "c",
+        "text": "Sending requests to less-busy or closer servers (latency)"
+      },
+      {
+        "id": "d",
+        "text": "Guaranteeing data is never lost"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "scaling-and-traffic-02",
+    "topic": "scaling-and-traffic",
+    "lesson": "layer-4-vs-layer-7-load-balancing",
+    "type": "single-choice",
+    "prompt": "What distinguishes a Layer 7 load balancer from a Layer 4 one?",
+    "explanation": "Layer 4 routes on IP and port without reading content; Layer 7 reads the application protocol (HTTP), enabling content-based routing and TLS termination, at the cost of more processing.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Layer 7 is always slower and never used"
+      },
+      {
+        "id": "b",
+        "text": "Layer 7 understands the application protocol and can route on HTTP path, host, headers, or cookies"
+      },
+      {
+        "id": "c",
+        "text": "Layer 7 only balances UDP traffic"
+      },
+      {
+        "id": "d",
+        "text": "Layer 7 cannot terminate TLS"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "scaling-and-traffic-03",
+    "topic": "scaling-and-traffic",
+    "lesson": "load-balancing-algorithms",
+    "type": "single-choice",
+    "prompt": "Requests vary widely in duration (fast lookups and slow reports). Which algorithm balances them best?",
+    "explanation": "Least-connections sends each new request to the least-busy server, smoothing uneven load that round-robin would distribute blindly.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Round-robin"
+      },
+      {
+        "id": "b",
+        "text": "Least-connections"
+      },
+      {
+        "id": "c",
+        "text": "Random with no health checks"
+      },
+      {
+        "id": "d",
+        "text": "First server always"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "scaling-and-traffic-04",
+    "topic": "scaling-and-traffic",
+    "lesson": "health-checks-and-failover",
+    "type": "single-choice",
+    "prompt": "What does a health check let a load balancer do?",
+    "explanation": "Periodic health checks detect failing servers so the load balancer stops sending them traffic, turning a crash into a non-event for users.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Encrypt traffic"
+      },
+      {
+        "id": "b",
+        "text": "Automatically remove unhealthy servers from rotation and route around failures"
+      },
+      {
+        "id": "c",
+        "text": "Increase server memory"
+      },
+      {
+        "id": "d",
+        "text": "Cache database queries"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "scaling-and-traffic-05",
+    "topic": "scaling-and-traffic",
+    "lesson": "reverse-proxies-and-ssl-termination",
+    "type": "single-choice",
+    "prompt": "Why is relying on sticky sessions often a design smell?",
+    "explanation": "Stickiness papers over server-side state. Making servers stateless (shared session storage) lets any server serve any user and survive failures.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sticky sessions are illegal"
+      },
+      {
+        "id": "b",
+        "text": "They pin users to one server, so a failure loses their state and load can't rebalance freely"
+      },
+      {
+        "id": "c",
+        "text": "They make servers faster"
+      },
+      {
+        "id": "d",
+        "text": "They only work with Layer 4"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "scaling-and-traffic-06",
+    "topic": "scaling-and-traffic",
+    "lesson": "load-balancing-fundamentals",
+    "type": "fill-blank",
+    "prompt": "A component whose failure takes down the whole system is called a single ______ of failure. (one word)",
+    "explanation": "A single point of failure (SPOF) is why production runs redundant load balancers — the component that provides availability must not be able to take the system down.",
+    "answer": [
+      "point"
+    ]
+  },
+  {
+    "id": "scaling-and-traffic-07",
+    "topic": "scaling-and-traffic",
+    "lesson": "stateless-service-architecture",
+    "type": "single-choice",
+    "prompt": "What makes a service 'stateless'?",
+    "explanation": "Stateless means no per-client memory is kept on the server between requests; state lives in a shared store or in the request, so servers are interchangeable.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It never stores any data anywhere"
+      },
+      {
+        "id": "b",
+        "text": "It keeps no per-client state between requests, so any instance can serve any request"
+      },
+      {
+        "id": "c",
+        "text": "It has no database"
+      },
+      {
+        "id": "d",
+        "text": "It only handles read requests"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "scaling-and-traffic-08",
+    "topic": "scaling-and-traffic",
+    "lesson": "externalizing-session-state",
+    "type": "multiple-choice",
+    "prompt": "Where can you move state to make a service stateless? Select all that apply.",
+    "explanation": "State can go to a shared database, a distributed cache, object storage, or travel with the client as a token. Local memory is exactly what makes a service stateful.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A shared database"
+      },
+      {
+        "id": "b",
+        "text": "A distributed cache like Redis"
+      },
+      {
+        "id": "c",
+        "text": "A signed token carried by the client"
+      },
+      {
+        "id": "d",
+        "text": "The server's local memory"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "scaling-and-traffic-09",
+    "topic": "scaling-and-traffic",
+    "lesson": "the-scale-cube",
+    "type": "match-pair",
+    "prompt": "Match each AKF Scale Cube axis to what it means.",
+    "explanation": "X duplicates the whole app, Y splits by function (services), and Z splits by data (sharding). Real systems combine all three.",
+    "pairs": [
+      {
+        "left": "X-axis",
+        "right": "Clone the whole app behind a load balancer"
+      },
+      {
+        "left": "Y-axis",
+        "right": "Split the system into separate services by function"
+      },
+      {
+        "left": "Z-axis",
+        "right": "Partition the data so each node handles a subset"
+      }
+    ]
+  },
+  {
+    "id": "scaling-and-traffic-10",
+    "topic": "scaling-and-traffic",
+    "lesson": "vertical-vs-horizontal-scaling",
+    "type": "single-choice",
+    "prompt": "Which scaling axis does statelessness most directly enable?",
+    "explanation": "Cloning the whole app (X-axis) only works if instances are interchangeable, which requires statelessness.",
+    "options": [
+      {
+        "id": "a",
+        "text": "X-axis (cloning the whole app)"
+      },
+      {
+        "id": "b",
+        "text": "Z-axis (data partitioning)"
+      },
+      {
+        "id": "c",
+        "text": "Neither"
+      },
+      {
+        "id": "d",
+        "text": "A fourth, secret axis"
+      }
+    ],
+    "answer": "a"
+  },
+  {
+    "id": "scaling-and-traffic-11",
+    "topic": "scaling-and-traffic",
+    "lesson": "stateless-service-architecture",
+    "type": "single-choice",
+    "prompt": "A service writes uploaded files to local disk. Why does this break when scaled out?",
+    "explanation": "Local disk is state tied to one server. Using shared object storage keeps the service stateless so any server can serve any request.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Local disk is too slow"
+      },
+      {
+        "id": "b",
+        "text": "Local files are per-server state, so a follow-up request on another server won't find them"
+      },
+      {
+        "id": "c",
+        "text": "Files cannot be uploaded over HTTP"
+      },
+      {
+        "id": "d",
+        "text": "It doesn't break; local disk is shared automatically"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "scaling-and-traffic-12",
+    "topic": "scaling-and-traffic",
+    "lesson": "the-scale-cube",
+    "type": "fill-blank",
+    "prompt": "Splitting a system into separate services by function corresponds to the ______-axis of the AKF Scale Cube. (single letter)",
+    "explanation": "The Y-axis is functional decomposition — splitting by function into independent services, the road toward microservices.",
+    "answer": [
+      "y",
+      "Y"
+    ]
+  },
+  {
+    "id": "distributed-data-01",
+    "topic": "distributed-data",
+    "lesson": "single-leader-replication",
+    "type": "single-choice",
+    "prompt": "In leader–follower replication, where do writes go?",
+    "explanation": "All writes go to the leader (primary), which applies them and replicates the changes to its followers. Reads may use followers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To any replica"
+      },
+      {
+        "id": "b",
+        "text": "Only to the leader, which streams changes to followers"
+      },
+      {
+        "id": "c",
+        "text": "Only to followers"
+      },
+      {
+        "id": "d",
+        "text": "Directly to the client's cache"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-02",
+    "topic": "distributed-data",
+    "lesson": "sync-vs-async-replication",
+    "type": "single-choice",
+    "prompt": "What is the main risk of fully asynchronous replication when the leader fails?",
+    "explanation": "Asynchronous replication acknowledges a write before followers have it, so a leader crash can lose those un-replicated writes on failover.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reads become impossible"
+      },
+      {
+        "id": "b",
+        "text": "Recent writes not yet replicated can be lost during failover"
+      },
+      {
+        "id": "c",
+        "text": "The followers become leaders automatically with no data"
+      },
+      {
+        "id": "d",
+        "text": "Write latency increases"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-03",
+    "topic": "distributed-data",
+    "lesson": "replication-lag-and-read-anomalies",
+    "type": "single-choice",
+    "prompt": "A user updates their profile, then immediately reloads and sees the OLD value. What is happening?",
+    "explanation": "The read hit a follower that hadn't caught up to the leader (replication lag). Routing the recent writer's reads to the leader for a short window fixes it.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Split brain"
+      },
+      {
+        "id": "b",
+        "text": "A read-your-writes anomaly caused by reading a lagging follower"
+      },
+      {
+        "id": "c",
+        "text": "The write failed"
+      },
+      {
+        "id": "d",
+        "text": "A cache stampede"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-04",
+    "topic": "distributed-data",
+    "lesson": "multi-leader-and-leaderless-replication",
+    "type": "single-choice",
+    "prompt": "What is 'split brain' in a replicated database?",
+    "explanation": "Split brain happens when a failover promotes a new leader but the old one is still active (just unreachable), so two leaders accept conflicting writes and corrupt data.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A database split across two regions"
+      },
+      {
+        "id": "b",
+        "text": "Two nodes both acting as leader and accepting conflicting writes"
+      },
+      {
+        "id": "c",
+        "text": "A follower with two leaders"
+      },
+      {
+        "id": "d",
+        "text": "A crashed replica"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-05",
+    "topic": "distributed-data",
+    "lesson": "replication-goals-and-topologies",
+    "type": "multiple-choice",
+    "prompt": "Which are valid reasons to replicate a database? Select all that apply.",
+    "explanation": "Replication provides availability, read scaling, and geographic proximity (and durability). It complements but does not replace backups.",
+    "options": [
+      {
+        "id": "a",
+        "text": "High availability if a node fails"
+      },
+      {
+        "id": "b",
+        "text": "Scaling read traffic across replicas"
+      },
+      {
+        "id": "c",
+        "text": "Keeping a copy near users to reduce latency"
+      },
+      {
+        "id": "d",
+        "text": "Eliminating the need for backups entirely"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "distributed-data-06",
+    "topic": "distributed-data",
+    "lesson": "replication-lag-and-read-anomalies",
+    "type": "fill-blank",
+    "prompt": "The delay before a follower catches up to the leader's latest writes is called replication ______. (one word)",
+    "explanation": "Replication lag is how far behind a follower is; it causes read anomalies like read-your-writes and non-monotonic reads.",
+    "answer": [
+      "lag"
+    ]
+  },
+  {
+    "id": "distributed-data-07",
+    "topic": "distributed-data",
+    "lesson": "sharding-fundamentals",
+    "type": "single-choice",
+    "prompt": "What is the main goal of partitioning (sharding)?",
+    "explanation": "Partitioning splits data across nodes so total storage and write capacity grow with the number of nodes. It is usually combined with replication, not a replacement for it.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To keep a full copy of all data on every node"
+      },
+      {
+        "id": "b",
+        "text": "To split the dataset so each node holds a subset, letting capacity grow with the cluster"
+      },
+      {
+        "id": "c",
+        "text": "To encrypt the data"
+      },
+      {
+        "id": "d",
+        "text": "To remove the need for replication"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-08",
+    "topic": "distributed-data",
+    "lesson": "consistent-hashing",
+    "type": "single-choice",
+    "prompt": "What problem does consistent hashing specifically solve?",
+    "explanation": "Consistent hashing minimizes data movement when the node set changes — only ~K/N keys relocate. Even load still requires virtual nodes.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It makes range queries fast"
+      },
+      {
+        "id": "b",
+        "text": "It minimizes how many keys must move when a node joins or leaves (~K/N)"
+      },
+      {
+        "id": "c",
+        "text": "It guarantees perfectly even load with no extra mechanism"
+      },
+      {
+        "id": "d",
+        "text": "It encrypts keys before storing them"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-09",
+    "topic": "distributed-data",
+    "lesson": "virtual-nodes-and-rebalancing",
+    "type": "single-choice",
+    "prompt": "What are virtual nodes (vnodes) for in consistent hashing?",
+    "explanation": "A few physical nodes on a ring can split it unevenly. Placing each node at many ring positions (vnodes) smooths the distribution.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To encrypt data"
+      },
+      {
+        "id": "b",
+        "text": "To balance load by placing each physical node at many points on the ring"
+      },
+      {
+        "id": "c",
+        "text": "To replace replication"
+      },
+      {
+        "id": "d",
+        "text": "To make range scans efficient"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-10",
+    "topic": "distributed-data",
+    "lesson": "range-based-partitioning",
+    "type": "single-choice",
+    "prompt": "Why does partitioning by a timestamp key often create a hotspot?",
+    "explanation": "With a monotonic key like a timestamp, every new write lands on the newest partition while older partitions sit idle — a classic hotspot.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Timestamps cannot be hashed"
+      },
+      {
+        "id": "b",
+        "text": "All new writes share the newest timestamp, so they all hit the single newest partition"
+      },
+      {
+        "id": "c",
+        "text": "Timestamps are too large to store"
+      },
+      {
+        "id": "d",
+        "text": "It makes range queries impossible"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-11",
+    "topic": "distributed-data",
+    "lesson": "hash-based-partitioning",
+    "type": "single-choice",
+    "prompt": "One celebrity's shard receives 1000x the reads of any other. Does better hashing fix it?",
+    "explanation": "Hashing balances many keys, not one red-hot key. Mitigate a hot key by caching it or splitting it across sub-keys.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, hashing always balances load perfectly"
+      },
+      {
+        "id": "b",
+        "text": "No — this is a single hot key, not skewed distribution; you need caching or key splitting"
+      },
+      {
+        "id": "c",
+        "text": "Yes, if you add more virtual nodes"
+      },
+      {
+        "id": "d",
+        "text": "No, the data must be deleted"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-data-12",
+    "topic": "distributed-data",
+    "lesson": "virtual-nodes-and-rebalancing",
+    "type": "single-choice",
+    "prompt": "Why is 'hash(key) mod N' a poor way to assign keys to nodes?",
+    "explanation": "With mod N, adding or removing a node changes N and remaps nearly all keys, causing huge data movement and cache churn. Consistent hashing avoids this.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is too slow to compute"
+      },
+      {
+        "id": "b",
+        "text": "Changing N remaps almost every key at once, causing a massive reshuffle"
+      },
+      {
+        "id": "c",
+        "text": "It cannot handle string keys"
+      },
+      {
+        "id": "d",
+        "text": "It always overloads node 0"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-01",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "linearizability-strong-consistency",
+    "type": "single-choice",
+    "prompt": "What does linearizability (strong consistency) guarantee?",
+    "explanation": "Linearizability is a recency guarantee on single objects: the system appears to have a single up-to-date copy, and reads never see stale data once a write completes.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Replicas converge only if writes eventually stop"
+      },
+      {
+        "id": "b",
+        "text": "The system behaves like one up-to-date copy: once a write completes, later reads see that write or a newer one"
+      },
+      {
+        "id": "c",
+        "text": "Transactions run one at a time in some serial order"
+      },
+      {
+        "id": "d",
+        "text": "Data is encrypted at rest"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-02",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "linearizability-strong-consistency",
+    "type": "single-choice",
+    "prompt": "Which statement about linearizability vs serializability is correct?",
+    "explanation": "Linearizability concerns real-time recency of single-object operations; serializability concerns transactions appearing to run in some serial order. Both together is strict serializability.",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are two words for the same thing"
+      },
+      {
+        "id": "b",
+        "text": "Linearizability is single-object recency (real-time order); serializability is transaction isolation (some serial order). They are independent."
+      },
+      {
+        "id": "c",
+        "text": "Serializability implies linearizability automatically"
+      },
+      {
+        "id": "d",
+        "text": "Linearizability only applies to transactions"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-03",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "eventual-consistency",
+    "type": "single-choice",
+    "prompt": "Which consistency model is the strongest that still stays highly available during a network partition?",
+    "explanation": "Causal consistency preserves cause-and-effect ordering and can remain available under partition, unlike linearizability which requires coordination.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Linearizability"
+      },
+      {
+        "id": "b",
+        "text": "Strict serializability"
+      },
+      {
+        "id": "c",
+        "text": "Causal consistency"
+      },
+      {
+        "id": "d",
+        "text": "No consistency is available during a partition"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "consistency-and-tradeoffs-04",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "causal-consistency",
+    "type": "single-choice",
+    "prompt": "Is the 'C' in ACID the same as the 'C' in CAP?",
+    "explanation": "They are different ideas: ACID's C is about the integrity constraints the application defines; CAP's C is linearizability, a replication recency guarantee.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, both mean the same consistency"
+      },
+      {
+        "id": "b",
+        "text": "No — ACID's C is application integrity constraints; CAP's C is linearizability"
+      },
+      {
+        "id": "c",
+        "text": "Yes, both mean encryption"
+      },
+      {
+        "id": "d",
+        "text": "No — ACID's C means availability"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-05",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "read-after-write-and-monotonic-reads",
+    "type": "match-pair",
+    "prompt": "Match each consistency guarantee to its promise.",
+    "explanation": "Each guarantee targets a specific anomaly: seeing your own writes, not moving backward, eventual convergence, or full real-time recency.",
+    "pairs": [
+      {
+        "left": "Read-your-writes",
+        "right": "You always see your own most recent writes"
+      },
+      {
+        "left": "Monotonic reads",
+        "right": "Successive reads never go backward in time"
+      },
+      {
+        "left": "Eventual consistency",
+        "right": "Replicas converge if writes stop"
+      },
+      {
+        "left": "Linearizability",
+        "right": "Reads always see the latest write, as if one copy"
+      }
+    ]
+  },
+  {
+    "id": "consistency-and-tradeoffs-06",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "read-after-write-and-monotonic-reads",
+    "type": "single-choice",
+    "prompt": "A 'is this username taken?' check must never let two people claim the same name. Which model does it need?",
+    "explanation": "Uniqueness requires seeing the very latest state so only one claimant wins — that is linearizability. Eventual consistency could let both succeed.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Eventual consistency"
+      },
+      {
+        "id": "b",
+        "text": "Linearizability (a single, up-to-date view)"
+      },
+      {
+        "id": "c",
+        "text": "No consistency at all"
+      },
+      {
+        "id": "d",
+        "text": "Monotonic reads only"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-07",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "the-cap-theorem-explained",
+    "type": "single-choice",
+    "prompt": "What does the CAP theorem actually say?",
+    "explanation": "CAP is specifically about behavior during a partition: you must sacrifice either consistency or availability while partitioned. The rest of the time you can have both.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A distributed system can only ever have two of consistency, availability, and partition tolerance"
+      },
+      {
+        "id": "b",
+        "text": "During a network partition, a distributed system must choose between consistency and availability"
+      },
+      {
+        "id": "c",
+        "text": "Consistency and availability are impossible together, always"
+      },
+      {
+        "id": "d",
+        "text": "Partitions never happen in practice"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-08",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "cap-myths-and-nuance",
+    "type": "single-choice",
+    "prompt": "Why is 'pick 2 of 3' a misleading way to state CAP?",
+    "explanation": "Networks fail, so a distributed system must tolerate partitions. You don't trade away P; you choose C or A when a partition occurs.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Because consistency is never achievable"
+      },
+      {
+        "id": "b",
+        "text": "Because partition tolerance isn't optional for a distributed system, so the real choice is C vs A during a partition"
+      },
+      {
+        "id": "c",
+        "text": "Because availability is always chosen"
+      },
+      {
+        "id": "d",
+        "text": "Because there are actually four properties"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-09",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "the-cap-theorem-explained",
+    "type": "single-choice",
+    "prompt": "During a partition, how does an AP system behave?",
+    "explanation": "An AP system favors availability: it answers from whatever nodes are reachable, accepting possibly stale data, and reconciles once the partition heals.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It refuses requests to stay consistent"
+      },
+      {
+        "id": "b",
+        "text": "It answers requests from reachable nodes, possibly returning stale data"
+      },
+      {
+        "id": "c",
+        "text": "It shuts down entirely"
+      },
+      {
+        "id": "d",
+        "text": "It guarantees the latest data on every read"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-10",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "cap-myths-and-nuance",
+    "type": "single-choice",
+    "prompt": "A teammate says 'our distributed database is CA — consistent and available, no partition tolerance.' What's wrong?",
+    "explanation": "Partitions are unavoidable in a distributed system, so 'giving up P' isn't real. The system must decide CP or AP for partition behavior.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nothing, CA is the best choice"
+      },
+      {
+        "id": "b",
+        "text": "You can't opt out of partitions in a distributed system, so CA isn't a meaningful choice — you must pick CP or AP"
+      },
+      {
+        "id": "c",
+        "text": "CA means the system is always down"
+      },
+      {
+        "id": "d",
+        "text": "CA only applies to single-node caches"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-11",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "the-pacelc-theorem",
+    "type": "single-choice",
+    "prompt": "What does PACELC add beyond CAP?",
+    "explanation": "PACELC: if Partition, choose Availability or Consistency; Else, choose Latency or Consistency — capturing that strong consistency costs latency even without partitions.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It removes the need to choose during a partition"
+      },
+      {
+        "id": "b",
+        "text": "It adds the normal-operation trade-off: Else (no partition), choose Latency or Consistency"
+      },
+      {
+        "id": "c",
+        "text": "It proves partitions never happen"
+      },
+      {
+        "id": "d",
+        "text": "It says availability is always best"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "consistency-and-tradeoffs-12",
+    "topic": "consistency-and-tradeoffs",
+    "lesson": "the-cap-theorem-explained",
+    "type": "single-choice",
+    "prompt": "In the CAP theorem, what does 'C' (consistency) specifically mean?",
+    "explanation": "CAP's C is linearizability, a recency guarantee — distinct from ACID's C, which is about application integrity constraints.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The ACID integrity constraints of a transaction"
+      },
+      {
+        "id": "b",
+        "text": "Linearizability — every read sees the most recent write"
+      },
+      {
+        "id": "c",
+        "text": "That data is encrypted"
+      },
+      {
+        "id": "d",
+        "text": "That the cache is warm"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-01",
+    "topic": "asynchronous-systems",
+    "lesson": "message-queues-vs-event-logs",
+    "type": "single-choice",
+    "prompt": "What is a key difference between a message queue and an event log (like Kafka)?",
+    "explanation": "A queue removes each message on consume (workers compete); a log retains ordered messages so many consumers read independently by offset and can replay history.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A queue keeps messages forever; a log deletes them immediately"
+      },
+      {
+        "id": "b",
+        "text": "A queue removes a message once consumed; a log retains ordered messages that consumers read by offset and can replay"
+      },
+      {
+        "id": "c",
+        "text": "A log can only have one consumer"
+      },
+      {
+        "id": "d",
+        "text": "They are identical"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-02",
+    "topic": "asynchronous-systems",
+    "lesson": "delivery-semantics-and-deduplication",
+    "type": "single-choice",
+    "prompt": "What is the main downside of at-least-once delivery?",
+    "explanation": "At-least-once never loses messages, but a lost acknowledgment can cause redelivery, so consumers may see duplicates and must handle them idempotently.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Messages can be lost"
+      },
+      {
+        "id": "b",
+        "text": "The same message may be delivered more than once (duplicates)"
+      },
+      {
+        "id": "c",
+        "text": "It is slower than exactly-once"
+      },
+      {
+        "id": "d",
+        "text": "It cannot be used with queues"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-03",
+    "topic": "asynchronous-systems",
+    "lesson": "delivery-semantics-and-deduplication",
+    "type": "single-choice",
+    "prompt": "Why is true exactly-once DELIVERY generally impossible in a distributed system?",
+    "explanation": "The ambiguity of a missing acknowledgment forces a choice between at-most-once (risk loss) and at-least-once (risk duplicates). Exactly-once delivery can't be guaranteed.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Because brokers are too slow"
+      },
+      {
+        "id": "b",
+        "text": "Because a sender with no acknowledgment can't tell if the message or the ack was lost, so it must risk loss or duplication"
+      },
+      {
+        "id": "c",
+        "text": "Because messages are encrypted"
+      },
+      {
+        "id": "d",
+        "text": "It is actually always possible"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-04",
+    "topic": "asynchronous-systems",
+    "lesson": "delivery-semantics-and-deduplication",
+    "type": "single-choice",
+    "prompt": "How do real systems achieve 'exactly-once processing'?",
+    "explanation": "At-least-once delivery plus an idempotent consumer (or dedup by message id) means processing a duplicate has no extra effect — 'effectively once.'",
+    "options": [
+      {
+        "id": "a",
+        "text": "By using at-most-once delivery"
+      },
+      {
+        "id": "b",
+        "text": "By combining at-least-once delivery with idempotent (or deduplicating) consumers"
+      },
+      {
+        "id": "c",
+        "text": "By never retrying"
+      },
+      {
+        "id": "d",
+        "text": "By disabling acknowledgments"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-05",
+    "topic": "asynchronous-systems",
+    "lesson": "partitioned-logs-and-consumer-groups",
+    "type": "single-choice",
+    "prompt": "Does Kafka's 'exactly-once semantics' guarantee exactly-once end-to-end to an external database or email service?",
+    "explanation": "Kafka's exactly-once (idempotent producer + transactions) applies within Kafka. End-to-end exactly-once to an external sink still requires that sink to be idempotent.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, automatically everywhere"
+      },
+      {
+        "id": "b",
+        "text": "No — it holds within Kafka; writing to an external system still needs an idempotent sink"
+      },
+      {
+        "id": "c",
+        "text": "Yes, but only for reads"
+      },
+      {
+        "id": "d",
+        "text": "No, Kafka has no exactly-once features at all"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-06",
+    "topic": "asynchronous-systems",
+    "lesson": "publish-subscribe-pattern",
+    "type": "fill-blank",
+    "prompt": "Coping when producers push faster than consumers can handle is called ______. (one word)",
+    "explanation": "Backpressure covers buffering, scaling consumers, or slowing/rejecting producers. Unbounded queues hide overload, so monitor consumer lag and cap growth.",
+    "answer": [
+      "backpressure"
+    ]
+  },
+  {
+    "id": "distributed-reliability-01",
+    "topic": "distributed-reliability",
+    "lesson": "the-two-generals-and-network-uncertainty",
+    "type": "single-choice",
+    "prompt": "After a request times out with no response, what do you actually know about the outcome?",
+    "explanation": "A timeout is ambiguous: the client can't tell whether the operation ran and the response was lost, or the request never arrived. This is why blind retries are dangerous.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The operation definitely failed"
+      },
+      {
+        "id": "b",
+        "text": "The operation definitely succeeded"
+      },
+      {
+        "id": "c",
+        "text": "It's unknown — the operation may have succeeded and the reply was lost, or it never arrived"
+      },
+      {
+        "id": "d",
+        "text": "The server crashed"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "distributed-reliability-02",
+    "topic": "distributed-reliability",
+    "lesson": "exponential-backoff-and-jitter",
+    "type": "single-choice",
+    "prompt": "Why add jitter to exponential backoff?",
+    "explanation": "Jitter randomizes the wait so a crowd of clients spreads their retries over time instead of hitting the recovering service in a synchronized wave.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To make retries happen faster"
+      },
+      {
+        "id": "b",
+        "text": "So clients that failed together don't retry in lockstep and re-overload the service"
+      },
+      {
+        "id": "c",
+        "text": "To encrypt the retries"
+      },
+      {
+        "id": "d",
+        "text": "To guarantee the request succeeds"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-03",
+    "topic": "distributed-reliability",
+    "lesson": "idempotency-keys",
+    "type": "single-choice",
+    "prompt": "How does an idempotency key make a non-idempotent write (like a charge) safe to retry?",
+    "explanation": "The same key is sent on every retry; the server recognizes it and returns the stored result, so the charge happens at most once.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It encrypts the payment details"
+      },
+      {
+        "id": "b",
+        "text": "The server records the key's result and returns it on a retry, instead of performing the operation again"
+      },
+      {
+        "id": "c",
+        "text": "It cancels the first attempt"
+      },
+      {
+        "id": "d",
+        "text": "It makes the request faster"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-04",
+    "topic": "distributed-reliability",
+    "lesson": "exponential-backoff-and-jitter",
+    "type": "single-choice",
+    "prompt": "What is a 'retry storm'?",
+    "explanation": "Synchronized, unbounded retries pile load onto a service exactly when it's weakest, often finishing it off. Backoff, jitter, retry caps, and circuit breakers prevent it.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A backup process running nightly"
+      },
+      {
+        "id": "b",
+        "text": "Many clients retrying a failing dependency at once, amplifying load and cascading the failure"
+      },
+      {
+        "id": "c",
+        "text": "A burst of successful requests"
+      },
+      {
+        "id": "d",
+        "text": "A type of load balancer"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-05",
+    "topic": "distributed-reliability",
+    "lesson": "timeout-strategies",
+    "type": "single-choice",
+    "prompt": "What is the risk of setting a timeout too long?",
+    "explanation": "An overly long timeout leaks resources on a dead dependency, which can cascade into a wider outage. Too short, and you get false failures. Tune deliberately.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Requests fail too early"
+      },
+      {
+        "id": "b",
+        "text": "Threads, connections, and memory stay tied up waiting on a dead peer, risking resource exhaustion"
+      },
+      {
+        "id": "c",
+        "text": "The server gets fewer requests"
+      },
+      {
+        "id": "d",
+        "text": "Nothing; longer is always safer"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-06",
+    "topic": "distributed-reliability",
+    "lesson": "idempotency-keys",
+    "type": "multiple-choice",
+    "prompt": "Which operations are naturally safe to retry without special handling? Select all that apply.",
+    "explanation": "GET, PUT, and DELETE are idempotent, so repeating them has the same effect as doing them once. POST is not idempotent and needs an idempotency key.",
+    "options": [
+      {
+        "id": "a",
+        "text": "GET (read a resource)"
+      },
+      {
+        "id": "b",
+        "text": "PUT (replace a resource with a full new value)"
+      },
+      {
+        "id": "c",
+        "text": "DELETE (remove a resource)"
+      },
+      {
+        "id": "d",
+        "text": "POST (create a new charge)"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "asynchronous-systems-07",
+    "topic": "asynchronous-systems",
+    "lesson": "token-bucket-and-leaky-bucket",
+    "type": "single-choice",
+    "prompt": "Why is the token bucket algorithm so widely used for rate limiting?",
+    "explanation": "A token bucket refills at a steady rate up to a capacity, so a client can burst up to the bucket size but is held to a steady long-run rate.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It blocks all bursts completely"
+      },
+      {
+        "id": "b",
+        "text": "It allows short bursts up to the bucket capacity while enforcing a steady average rate"
+      },
+      {
+        "id": "c",
+        "text": "It requires no configuration"
+      },
+      {
+        "id": "d",
+        "text": "It never rejects requests"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-08",
+    "topic": "asynchronous-systems",
+    "lesson": "fixed-and-sliding-window-algorithms",
+    "type": "single-choice",
+    "prompt": "What is the boundary-burst problem with fixed-window rate limiting?",
+    "explanation": "Because the counter resets at the window boundary, a client can pack a full window on each side of the boundary, sending roughly double the intended rate in a short span.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The window never resets"
+      },
+      {
+        "id": "b",
+        "text": "A client can send a full window just before the reset and another full window just after, briefly doubling the rate"
+      },
+      {
+        "id": "c",
+        "text": "It uses too much memory"
+      },
+      {
+        "id": "d",
+        "text": "It cannot count requests"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-09",
+    "topic": "asynchronous-systems",
+    "lesson": "rate-limiting-fundamentals",
+    "type": "single-choice",
+    "prompt": "What HTTP status code should a rate-limited request receive?",
+    "explanation": "429 Too Many Requests signals rate limiting, ideally with a Retry-After header so well-behaved clients back off.",
+    "options": [
+      {
+        "id": "a",
+        "text": "404 Not Found"
+      },
+      {
+        "id": "b",
+        "text": "500 Internal Server Error"
+      },
+      {
+        "id": "c",
+        "text": "429 Too Many Requests"
+      },
+      {
+        "id": "d",
+        "text": "200 OK"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "asynchronous-systems-10",
+    "topic": "asynchronous-systems",
+    "lesson": "api-gateway-pattern",
+    "type": "multiple-choice",
+    "prompt": "Which are typical responsibilities of an API gateway? Select all that apply.",
+    "explanation": "A gateway handles cross-cutting concerns: routing, auth, rate limiting, TLS, and observability. It should not become the system of record for business data.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Routing requests to backend services"
+      },
+      {
+        "id": "b",
+        "text": "Authentication and rate limiting at the edge"
+      },
+      {
+        "id": "c",
+        "text": "TLS termination and centralized logging"
+      },
+      {
+        "id": "d",
+        "text": "Storing the primary copy of all business data"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "asynchronous-systems-11",
+    "topic": "asynchronous-systems",
+    "lesson": "distributed-rate-limiting",
+    "type": "single-choice",
+    "prompt": "You run 5 gateway instances, each enforcing '600/minute per user' with a local counter. What goes wrong?",
+    "explanation": "Local counters don't coordinate, so a user spread across N instances gets N times the limit. A shared counter (e.g., in Redis) enforces one global limit.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nothing; local counters are fine"
+      },
+      {
+        "id": "b",
+        "text": "A user can hit each instance separately, getting up to 5x the intended limit"
+      },
+      {
+        "id": "c",
+        "text": "The limit becomes too strict"
+      },
+      {
+        "id": "d",
+        "text": "The gateway crashes"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "asynchronous-systems-12",
+    "topic": "asynchronous-systems",
+    "lesson": "token-bucket-and-leaky-bucket",
+    "type": "single-choice",
+    "prompt": "How does a leaky bucket differ from a token bucket?",
+    "explanation": "A leaky bucket drains at a constant rate, smoothing bursts (with queuing delay), while a token bucket permits bursts up to its capacity.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A leaky bucket allows unlimited bursts"
+      },
+      {
+        "id": "b",
+        "text": "A leaky bucket queues requests and processes them at a fixed rate, smoothing bursts into a steady stream"
+      },
+      {
+        "id": "c",
+        "text": "They are identical"
+      },
+      {
+        "id": "d",
+        "text": "A leaky bucket never limits anything"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-01",
+    "topic": "system-architecture",
+    "lesson": "microservices-architecture",
+    "type": "single-choice",
+    "prompt": "What is the core trade-off of adopting microservices?",
+    "explanation": "Microservices buy independence (scaling, deploys, tech, teams) at the price of network calls, partial failure, eventual consistency, and operational overhead.",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are always faster to build than a monolith"
+      },
+      {
+        "id": "b",
+        "text": "They enable independent scaling, deployment, and team autonomy, but impose full distributed-systems complexity"
+      },
+      {
+        "id": "c",
+        "text": "They remove the need for databases"
+      },
+      {
+        "id": "d",
+        "text": "They guarantee higher performance"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-02",
+    "topic": "system-architecture",
+    "lesson": "bounded-contexts-and-service-boundaries",
+    "type": "single-choice",
+    "prompt": "How should you draw microservice boundaries?",
+    "explanation": "Boundaries should follow business capabilities (bounded contexts), and each service should own its data so services can evolve independently.",
+    "options": [
+      {
+        "id": "a",
+        "text": "By technical layer (a database service, a logic service)"
+      },
+      {
+        "id": "b",
+        "text": "Around business capabilities / bounded contexts, with each service owning its own data"
+      },
+      {
+        "id": "c",
+        "text": "Randomly, to spread load"
+      },
+      {
+        "id": "d",
+        "text": "One service per database table"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-03",
+    "topic": "system-architecture",
+    "lesson": "the-distributed-monolith",
+    "type": "single-choice",
+    "prompt": "What is a 'distributed monolith'?",
+    "explanation": "A distributed monolith has the operational cost of microservices and the coupling of a monolith: coupled deploys, shared databases, and long synchronous chains.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A very large single application"
+      },
+      {
+        "id": "b",
+        "text": "Services so tightly coupled that they must be deployed together or share a database — the worst of both worlds"
+      },
+      {
+        "id": "c",
+        "text": "A monolith deployed to many servers"
+      },
+      {
+        "id": "d",
+        "text": "A microservice with its own database"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-04",
+    "topic": "system-architecture",
+    "lesson": "the-modular-monolith",
+    "type": "single-choice",
+    "prompt": "Why do many experts recommend starting with a monolith?",
+    "explanation": "Early on the correct service boundaries aren't clear; splitting too soon cements the wrong ones. A modular monolith scales a long way and can be extracted incrementally.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Monoliths always outperform microservices"
+      },
+      {
+        "id": "b",
+        "text": "You don't yet know the right boundaries, premature splitting locks in wrong ones, and a good monolith scales far"
+      },
+      {
+        "id": "c",
+        "text": "Microservices are impossible to build"
+      },
+      {
+        "id": "d",
+        "text": "Monoliths never need to change"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-05",
+    "topic": "system-architecture",
+    "lesson": "bounded-contexts-and-service-boundaries",
+    "type": "single-choice",
+    "prompt": "What does Conway's Law imply for microservice design?",
+    "explanation": "Conway's Law says system structure reflects org structure. Aligning service boundaries with team boundaries reduces coordination friction.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Services should be as small as possible"
+      },
+      {
+        "id": "b",
+        "text": "A system's structure mirrors the organization's communication structure, so align services with teams"
+      },
+      {
+        "id": "c",
+        "text": "All services must use the same language"
+      },
+      {
+        "id": "d",
+        "text": "Databases must be shared"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-06",
+    "topic": "system-architecture",
+    "lesson": "the-distributed-monolith",
+    "type": "multiple-choice",
+    "prompt": "Which are signs of the distributed-monolith anti-pattern? Select all that apply.",
+    "explanation": "Coupled deploys, shared databases, and long synchronous chains are the smells. Independent data ownership and deployment is the opposite — the healthy pattern.",
+    "options": [
+      {
+        "id": "a",
+        "text": "You can't deploy one service without deploying others"
+      },
+      {
+        "id": "b",
+        "text": "Multiple services share the same database tables"
+      },
+      {
+        "id": "c",
+        "text": "One request fans out through a long synchronous chain of services"
+      },
+      {
+        "id": "d",
+        "text": "Each service owns its own data and deploys independently"
+      }
+    ],
+    "answer": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "distributed-reliability-07",
+    "topic": "distributed-reliability",
+    "lesson": "partial-failure-and-blast-radius",
+    "type": "single-choice",
+    "prompt": "What is a cascading failure?",
+    "explanation": "A cascade is when one slow or failed dependency exhausts a caller's resources, dragging down everything that depends on it — the failure most resilience patterns aim to contain.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A database losing data"
+      },
+      {
+        "id": "b",
+        "text": "One failure tying up a caller's resources and taking it down, which takes its callers down, spreading across the system"
+      },
+      {
+        "id": "c",
+        "text": "A planned maintenance window"
+      },
+      {
+        "id": "d",
+        "text": "A single server crash with no wider effect"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-08",
+    "topic": "distributed-reliability",
+    "lesson": "circuit-breaker-pattern",
+    "type": "single-choice",
+    "prompt": "In the OPEN state, what does a circuit breaker do?",
+    "explanation": "When open, the breaker fails fast so callers don't pile up on a down dependency, giving it room to recover. After a cooldown it goes half-open to test recovery.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sends all calls through normally"
+      },
+      {
+        "id": "b",
+        "text": "Fails fast — rejects calls immediately without hitting the dependency — for a cooldown period"
+      },
+      {
+        "id": "c",
+        "text": "Retries forever"
+      },
+      {
+        "id": "d",
+        "text": "Shuts down the caller"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-09",
+    "topic": "distributed-reliability",
+    "lesson": "bulkhead-pattern",
+    "type": "single-choice",
+    "prompt": "What does the bulkhead pattern isolate?",
+    "explanation": "Bulkheads give each dependency its own resource pool, so a single hung dependency exhausts only its pool and the others keep working — like watertight ship compartments.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Data between regions"
+      },
+      {
+        "id": "b",
+        "text": "Resources like thread/connection pools, so one hung dependency can't exhaust all of them"
+      },
+      {
+        "id": "c",
+        "text": "User sessions"
+      },
+      {
+        "id": "d",
+        "text": "Encryption keys"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-10",
+    "topic": "distributed-reliability",
+    "lesson": "load-shedding-and-graceful-degradation",
+    "type": "single-choice",
+    "prompt": "A product page's recommendation service is down. Graceful degradation means:",
+    "explanation": "Graceful degradation returns a reduced but working response — here, the product page minus the optional recommendations section — rather than failing the whole request.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return a 500 error for the whole page"
+      },
+      {
+        "id": "b",
+        "text": "Render the product page without recommendations instead of failing entirely"
+      },
+      {
+        "id": "c",
+        "text": "Retry recommendations forever"
+      },
+      {
+        "id": "d",
+        "text": "Shut down the site"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-11",
+    "topic": "distributed-reliability",
+    "lesson": "circuit-breaker-pattern",
+    "type": "single-choice",
+    "prompt": "What problem does service discovery solve?",
+    "explanation": "Instances constantly change (autoscaling, deploys, failures), so addresses aren't fixed. Service discovery (a registry, DNS, or platform mechanism) returns healthy instances at runtime.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Encrypting traffic between services"
+      },
+      {
+        "id": "b",
+        "text": "Finding a healthy instance of a dependency at runtime as instances come and go"
+      },
+      {
+        "id": "c",
+        "text": "Storing the database"
+      },
+      {
+        "id": "d",
+        "text": "Rate limiting requests"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-reliability-12",
+    "topic": "distributed-reliability",
+    "lesson": "load-shedding-and-graceful-degradation",
+    "type": "single-choice",
+    "prompt": "Under severe overload, why might a system deliberately reject some requests (load shedding)?",
+    "explanation": "Trying to serve everything under overload can cause total collapse. Load shedding sacrifices some (often low-priority) requests to keep the core healthy for the rest.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To punish users"
+      },
+      {
+        "id": "b",
+        "text": "Because serving all requests badly can collapse the system; shedding excess protects the core so most requests succeed"
+      },
+      {
+        "id": "c",
+        "text": "To save electricity"
+      },
+      {
+        "id": "d",
+        "text": "It never should reject requests"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-01",
+    "topic": "distributed-coordination",
+    "lesson": "two-phase-commit",
+    "type": "single-choice",
+    "prompt": "Why is two-phase commit (2PC) generally avoided across microservices?",
+    "explanation": "2PC provides atomicity but blocks: participants hold locks between voting and the decision, a coordinator failure strands them in-doubt, and it isn't partition-tolerant — bad for availability at scale.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It loses data on every commit"
+      },
+      {
+        "id": "b",
+        "text": "It is blocking — participants hold locks awaiting the decision, and a coordinator crash leaves them in-doubt — and it isn't partition-tolerant"
+      },
+      {
+        "id": "c",
+        "text": "It cannot achieve atomicity"
+      },
+      {
+        "id": "d",
+        "text": "It only works with NoSQL"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-02",
+    "topic": "distributed-coordination",
+    "lesson": "the-saga-pattern",
+    "type": "single-choice",
+    "prompt": "What is a saga?",
+    "explanation": "A saga breaks a distributed operation into local transactions; if a later step fails, compensating transactions semantically undo the completed steps.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A single ACID transaction across many databases"
+      },
+      {
+        "id": "b",
+        "text": "A sequence of local transactions where failures trigger compensating transactions to undo earlier steps"
+      },
+      {
+        "id": "c",
+        "text": "A caching strategy"
+      },
+      {
+        "id": "d",
+        "text": "A type of load balancer"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-03",
+    "topic": "distributed-coordination",
+    "lesson": "the-saga-pattern",
+    "type": "single-choice",
+    "prompt": "What guarantee do sagas give up compared to a single ACID transaction?",
+    "explanation": "Each saga step commits immediately, so other operations can observe intermediate states. Sagas provide a form of atomicity via compensation but not isolation.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Atomicity"
+      },
+      {
+        "id": "b",
+        "text": "Durability"
+      },
+      {
+        "id": "c",
+        "text": "Isolation — intermediate states are visible before the saga completes"
+      },
+      {
+        "id": "d",
+        "text": "They give up nothing"
+      }
+    ],
+    "answer": "c"
+  },
+  {
+    "id": "distributed-coordination-04",
+    "topic": "distributed-coordination",
+    "lesson": "saga-orchestration-vs-choreography",
+    "type": "match-pair",
+    "prompt": "Match each saga coordination style to its description.",
+    "explanation": "Orchestration centralizes the flow in one coordinator; choreography is event-driven and decentralized.",
+    "pairs": [
+      {
+        "left": "Orchestration",
+        "right": "A central coordinator tells each service what to do next"
+      },
+      {
+        "left": "Choreography",
+        "right": "Each service emits events that trigger the next, with no central controller"
+      }
+    ]
+  },
+  {
+    "id": "distributed-coordination-05",
+    "topic": "distributed-coordination",
+    "lesson": "transactional-outbox-pattern",
+    "type": "single-choice",
+    "prompt": "What is the dual-write problem?",
+    "explanation": "Because the database and the message broker are separate systems, a naive 'write DB then publish' can leave them inconsistent if one succeeds and the other fails.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Writing the same row twice"
+      },
+      {
+        "id": "b",
+        "text": "Updating a database and publishing an event are two systems that can't be written atomically, so one may succeed and the other fail"
+      },
+      {
+        "id": "c",
+        "text": "Two users writing at once"
+      },
+      {
+        "id": "d",
+        "text": "A replication conflict"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-06",
+    "topic": "distributed-coordination",
+    "lesson": "transactional-outbox-pattern",
+    "type": "single-choice",
+    "prompt": "How does the transactional outbox solve the dual-write problem?",
+    "explanation": "The business change and an outbox row commit together atomically; a separate relay reads the outbox and publishes (at-least-once), so consumers must be idempotent.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It publishes to the broker first, then writes the database"
+      },
+      {
+        "id": "b",
+        "text": "It writes the event to an outbox table in the SAME database transaction as the change, then a relay publishes it — so the event is sent iff the transaction committed"
+      },
+      {
+        "id": "c",
+        "text": "It disables events entirely"
+      },
+      {
+        "id": "d",
+        "text": "It uses two-phase commit between the database and broker"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-07",
+    "topic": "distributed-coordination",
+    "lesson": "distributed-consensus-fundamentals",
+    "type": "single-choice",
+    "prompt": "What is consensus in a distributed system?",
+    "explanation": "Consensus is agreement on one value (or sequence) among nodes even when some fail — the basis for leader election, atomic commit, and replicated state machines.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Encrypting data across nodes"
+      },
+      {
+        "id": "b",
+        "text": "Getting multiple nodes to agree on a single value or ordered sequence despite failures"
+      },
+      {
+        "id": "c",
+        "text": "Splitting data across nodes"
+      },
+      {
+        "id": "d",
+        "text": "Caching results near users"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-08",
+    "topic": "distributed-coordination",
+    "lesson": "distributed-consensus-fundamentals",
+    "type": "single-choice",
+    "prompt": "A consensus cluster of 2f+1 nodes can tolerate how many node failures?",
+    "explanation": "With 2f+1 nodes, a majority (f+1) survives f failures. For example, 5 nodes tolerate 2 failures and still form a quorum of 3.",
+    "options": [
+      {
+        "id": "a",
+        "text": "2f failures"
+      },
+      {
+        "id": "b",
+        "text": "f failures, while still having a majority"
+      },
+      {
+        "id": "c",
+        "text": "All of them"
+      },
+      {
+        "id": "d",
+        "text": "Zero failures"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-09",
+    "topic": "distributed-coordination",
+    "lesson": "the-raft-consensus-algorithm",
+    "type": "single-choice",
+    "prompt": "Why do consensus clusters typically run an ODD number of nodes?",
+    "explanation": "5 nodes tolerate 2 failures, but 4 nodes tolerate only 1 — the same as 3 — so the extra even node adds cost without extra fault tolerance.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Odd numbers are faster"
+      },
+      {
+        "id": "b",
+        "text": "A majority of an odd set tolerates the most failures per node; e.g. 4 nodes tolerate only 1 failure, the same as 3, for more cost"
+      },
+      {
+        "id": "c",
+        "text": "Even numbers can't form a majority at all"
+      },
+      {
+        "id": "d",
+        "text": "It has no effect"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-10",
+    "topic": "distributed-coordination",
+    "lesson": "the-raft-consensus-algorithm",
+    "type": "single-choice",
+    "prompt": "How does Raft elect a leader?",
+    "explanation": "On an election timeout, a follower becomes a candidate for a new term and requests votes; winning a majority makes it leader, and it then sends heartbeats.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The node with the lowest IP always wins"
+      },
+      {
+        "id": "b",
+        "text": "A follower that hears no heartbeat becomes a candidate, increments the term, requests votes, and wins with a majority"
+      },
+      {
+        "id": "c",
+        "text": "A human administrator picks it"
+      },
+      {
+        "id": "d",
+        "text": "The oldest node is always leader"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-11",
+    "topic": "distributed-coordination",
+    "lesson": "paxos-and-raft-compared",
+    "type": "single-choice",
+    "prompt": "What does the FLP impossibility result tell us?",
+    "explanation": "FLP shows consensus can't be guaranteed under full asynchrony with a possible crash. Real systems use timeouts (partial synchrony) and sometimes randomization to make progress.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Consensus is impossible in all systems, always"
+      },
+      {
+        "id": "b",
+        "text": "In a fully asynchronous system where one node may crash, no deterministic algorithm can guarantee it always reaches consensus"
+      },
+      {
+        "id": "c",
+        "text": "Networks never fail"
+      },
+      {
+        "id": "d",
+        "text": "Quorums are unnecessary"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "distributed-coordination-12",
+    "topic": "distributed-coordination",
+    "lesson": "distributed-locks-and-leases",
+    "type": "single-choice",
+    "prompt": "Should you implement your own distributed leader election with a database flag?",
+    "explanation": "A homegrown flag lacks the majority-overlap guarantee, so a partition can create two leaders (split brain). Use a proven coordination service that provides quorum-based election.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, it's simple and correct"
+      },
+      {
+        "id": "b",
+        "text": "No — it can produce split brain under a partition; use a consensus-backed coordination service like etcd or ZooKeeper"
+      },
+      {
+        "id": "c",
+        "text": "Yes, as long as the database is fast"
+      },
+      {
+        "id": "d",
+        "text": "No, leader election is never needed"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-01",
+    "topic": "operations-and-security",
+    "lesson": "single-points-of-failure",
+    "type": "single-choice",
+    "prompt": "How do you remove a single point of failure?",
+    "explanation": "A SPOF is removed by redundancy: running spare capacity (N+1, active-active or active-passive) so the failure of one instance doesn't take down the system.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Make the component faster"
+      },
+      {
+        "id": "b",
+        "text": "Add redundancy — run more than one so losing one is survivable"
+      },
+      {
+        "id": "c",
+        "text": "Add more logging"
+      },
+      {
+        "id": "d",
+        "text": "Encrypt the component"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-02",
+    "topic": "operations-and-security",
+    "lesson": "failure-domains-and-blast-radius",
+    "type": "single-choice",
+    "prompt": "Why must redundant copies be placed in different failure domains?",
+    "explanation": "Three replicas in one rack all fail if that rack loses power. Spreading across zones/regions makes failures independent, which is the point of redundancy.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To reduce latency"
+      },
+      {
+        "id": "b",
+        "text": "Because redundancy only helps if the copies don't fail together; copies in one rack/zone can all die at once"
+      },
+      {
+        "id": "c",
+        "text": "To save money"
+      },
+      {
+        "id": "d",
+        "text": "It doesn't matter where they are"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-03",
+    "topic": "operations-and-security",
+    "lesson": "disaster-recovery-rto-and-rpo",
+    "type": "single-choice",
+    "prompt": "Why is replication NOT a substitute for backups?",
+    "explanation": "If a bug or bad DELETE corrupts data, replication copies the damage everywhere. A backup is a point-in-time copy that lets you recover — so you need both.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Replication is slower than backups"
+      },
+      {
+        "id": "b",
+        "text": "Replication faithfully propagates corruption and accidental deletes to all replicas instantly; backups are point-in-time copies you can restore from"
+      },
+      {
+        "id": "c",
+        "text": "Backups are always live copies"
+      },
+      {
+        "id": "d",
+        "text": "They are the same thing"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-04",
+    "topic": "operations-and-security",
+    "lesson": "disaster-recovery-rto-and-rpo",
+    "type": "match-pair",
+    "prompt": "Match each term to its meaning.",
+    "explanation": "RTO is downtime tolerance, RPO is data-loss tolerance; active-active runs all units live, active-passive keeps a standby ready.",
+    "pairs": [
+      {
+        "left": "RTO",
+        "right": "Maximum acceptable time to restore service"
+      },
+      {
+        "left": "RPO",
+        "right": "Maximum acceptable data loss, measured in time"
+      },
+      {
+        "left": "Active-active",
+        "right": "All redundant units serve traffic"
+      },
+      {
+        "left": "Active-passive",
+        "right": "A standby takes over on failure"
+      }
+    ]
+  },
+  {
+    "id": "operations-and-security-05",
+    "topic": "operations-and-security",
+    "lesson": "failure-domains-and-blast-radius",
+    "type": "single-choice",
+    "prompt": "A team runs three database replicas in the same rack 'for low latency.' What's the flaw?",
+    "explanation": "Co-locating replicas in one failure domain means one rack outage takes them all down, defeating the purpose of redundancy. Spread them across zones.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Three replicas is too many"
+      },
+      {
+        "id": "b",
+        "text": "They share a failure domain, so a rack power loss kills all three at once"
+      },
+      {
+        "id": "c",
+        "text": "Replicas can't be in the same rack technically"
+      },
+      {
+        "id": "d",
+        "text": "Nothing is wrong"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-06",
+    "topic": "operations-and-security",
+    "lesson": "chaos-engineering-and-game-days",
+    "type": "single-choice",
+    "prompt": "What is chaos engineering?",
+    "explanation": "Chaos engineering intentionally introduces failures (killing instances, adding latency, simulating outages) under controlled conditions to prove the system's resilience before a real outage does.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Writing code without a plan"
+      },
+      {
+        "id": "b",
+        "text": "Deliberately injecting failures in a controlled way to verify redundancy and failover actually work"
+      },
+      {
+        "id": "c",
+        "text": "Randomly deleting production data"
+      },
+      {
+        "id": "d",
+        "text": "A type of load balancing"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-07",
+    "topic": "operations-and-security",
+    "lesson": "the-three-pillars-metrics-logs-traces",
+    "type": "match-pair",
+    "prompt": "Match each observability pillar to what it is best at.",
+    "explanation": "Logs give detail, metrics give cheap aggregate trends for alerting, and traces show where a request spent time across services.",
+    "pairs": [
+      {
+        "left": "Logs",
+        "right": "Detailed record of what happened at a point"
+      },
+      {
+        "left": "Metrics",
+        "right": "Cheap aggregated numbers for trends and alerts"
+      },
+      {
+        "left": "Traces",
+        "right": "Following one request's path across services"
+      }
+    ]
+  },
+  {
+    "id": "operations-and-security-08",
+    "topic": "operations-and-security",
+    "lesson": "monitoring-vs-observability",
+    "type": "single-choice",
+    "prompt": "What is the difference between monitoring and observability?",
+    "explanation": "Monitoring checks for predefined, known conditions; observability lets you answer questions you didn't anticipate, explaining unexpected behavior.",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are the same thing"
+      },
+      {
+        "id": "b",
+        "text": "Monitoring watches for known problems; observability helps you understand new, unexpected behavior — the 'why'"
+      },
+      {
+        "id": "c",
+        "text": "Observability only means logging"
+      },
+      {
+        "id": "d",
+        "text": "Monitoring is only for databases"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-09",
+    "topic": "operations-and-security",
+    "lesson": "service-level-metrics-red-and-use",
+    "type": "single-choice",
+    "prompt": "What does the RED method measure for a service?",
+    "explanation": "RED = Rate (requests/sec), Errors (failed requests), Duration (latency) — the key user-facing signals for a request-driven service.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reliability, Efficiency, Durability"
+      },
+      {
+        "id": "b",
+        "text": "Rate, Errors, Duration"
+      },
+      {
+        "id": "c",
+        "text": "Reads, Edits, Deletes"
+      },
+      {
+        "id": "d",
+        "text": "Requests, Endpoints, Data"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-10",
+    "topic": "operations-and-security",
+    "lesson": "distributed-tracing-and-correlation",
+    "type": "single-choice",
+    "prompt": "Why attach and propagate a trace id across services?",
+    "explanation": "A shared trace id lets you jump from a spiking metric to the slow trace to the explaining log lines — reconstructing one request's end-to-end story.",
+    "options": [
+      {
+        "id": "a",
+        "text": "To encrypt the request"
+      },
+      {
+        "id": "b",
+        "text": "To correlate metrics, traces, and logs into one story for a single request"
+      },
+      {
+        "id": "c",
+        "text": "To rate-limit the request"
+      },
+      {
+        "id": "d",
+        "text": "To compress the logs"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-11",
+    "topic": "operations-and-security",
+    "lesson": "service-level-metrics-red-and-use",
+    "type": "single-choice",
+    "prompt": "Why should you alert on symptoms (SLOs) rather than every internal cause?",
+    "explanation": "Paging on every cause (like a CPU blip) buries on-call in noise. Alerting on user-facing symptoms tied to SLOs keeps pages urgent and actionable.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Symptoms are easier to ignore"
+      },
+      {
+        "id": "b",
+        "text": "Cause-based alerts create alert fatigue and non-actionable pages; symptom/SLO alerts stay meaningful and user-focused"
+      },
+      {
+        "id": "c",
+        "text": "Causes can't be measured"
+      },
+      {
+        "id": "d",
+        "text": "SLOs are required by law"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-12",
+    "topic": "operations-and-security",
+    "lesson": "the-three-pillars-metrics-logs-traces",
+    "type": "single-choice",
+    "prompt": "What is a risk of using high-cardinality labels (like user id) on metrics?",
+    "explanation": "Every distinct label combination creates a separate time series. High-cardinality labels like user id can generate millions of series, exploding storage and cost.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Metrics become encrypted"
+      },
+      {
+        "id": "b",
+        "text": "Each label combination is a new time series, so storage and cost can explode"
+      },
+      {
+        "id": "c",
+        "text": "Metrics stop working entirely"
+      },
+      {
+        "id": "d",
+        "text": "There is no risk"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-13",
+    "topic": "operations-and-security",
+    "lesson": "authentication-vs-authorization",
+    "type": "single-choice",
+    "prompt": "What is the difference between authentication and authorization?",
+    "explanation": "Authentication establishes identity (who you are); authorization checks permissions (what you may do). You authenticate first, then authorize each action.",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are the same thing"
+      },
+      {
+        "id": "b",
+        "text": "Authentication verifies who you are; authorization checks what you're allowed to do"
+      },
+      {
+        "id": "c",
+        "text": "Authentication checks permissions; authorization verifies identity"
+      },
+      {
+        "id": "d",
+        "text": "Authorization is only for admins"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-14",
+    "topic": "operations-and-security",
+    "lesson": "secret-management-and-key-rotation",
+    "type": "single-choice",
+    "prompt": "How should user passwords be stored?",
+    "explanation": "A per-user salt defeats precomputed-hash attacks and a slow algorithm makes brute force expensive, so a database leak exposes hashes that are impractical to crack.",
+    "options": [
+      {
+        "id": "a",
+        "text": "In plaintext for easy recovery"
+      },
+      {
+        "id": "b",
+        "text": "As a salted hash using a slow algorithm like bcrypt, scrypt, or Argon2"
+      },
+      {
+        "id": "c",
+        "text": "Encrypted with a key stored next to them"
+      },
+      {
+        "id": "d",
+        "text": "As a fast unsalted MD5 hash"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-15",
+    "topic": "operations-and-security",
+    "lesson": "oauth-2-and-openid-connect",
+    "type": "single-choice",
+    "prompt": "What is OAuth 2.0 primarily for?",
+    "explanation": "OAuth 2.0 is an authorization framework for delegated access: a user grants an app a scoped access token instead of their password. OpenID Connect adds authentication on top.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Encrypting data at rest"
+      },
+      {
+        "id": "b",
+        "text": "Delegated authorization — granting an app limited, scoped access to your data without sharing your password"
+      },
+      {
+        "id": "c",
+        "text": "Hashing passwords"
+      },
+      {
+        "id": "d",
+        "text": "Load balancing requests"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-16",
+    "topic": "operations-and-security",
+    "lesson": "defense-in-depth",
+    "type": "single-choice",
+    "prompt": "An API authenticates users but fetches a record by id without checking ownership. What vulnerability is this?",
+    "explanation": "Authentication is not authorization. Without a per-request ownership check, users can read others' records — broken access control, the most common serious web flaw.",
+    "options": [
+      {
+        "id": "a",
+        "text": "A cache stampede"
+      },
+      {
+        "id": "b",
+        "text": "Broken access control — any logged-in user can access others' data by changing the id"
+      },
+      {
+        "id": "c",
+        "text": "A retry storm"
+      },
+      {
+        "id": "d",
+        "text": "A split brain"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-17",
+    "topic": "operations-and-security",
+    "lesson": "defense-in-depth",
+    "type": "single-choice",
+    "prompt": "What is the principle of least privilege?",
+    "explanation": "Least privilege limits each identity to the minimum access it needs, so a compromised component can do far less damage.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Give every service admin rights for convenience"
+      },
+      {
+        "id": "b",
+        "text": "Grant each user, service, and credential the minimum permissions needed and nothing more"
+      },
+      {
+        "id": "c",
+        "text": "Only the CEO gets access"
+      },
+      {
+        "id": "d",
+        "text": "Disable all permissions"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "operations-and-security-18",
+    "topic": "operations-and-security",
+    "lesson": "encryption-in-transit-and-at-rest",
+    "type": "single-choice",
+    "prompt": "Is a signed JWT encrypted?",
+    "explanation": "A signed JWT proves integrity (it wasn't tampered with) but its payload is base64-encoded and readable. Don't store confidential data in one.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, its contents are secret"
+      },
+      {
+        "id": "b",
+        "text": "No — a signed JWT is readable (base64) and only tamper-evident, so never put secrets in it"
+      },
+      {
+        "id": "c",
+        "text": "Yes, JWTs are always encrypted by default"
+      },
+      {
+        "id": "d",
+        "text": "Only if it contains a password"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-07",
+    "topic": "system-architecture",
+    "lesson": "system-design-interview-framework",
+    "type": "single-choice",
+    "prompt": "What should be the FIRST step when tackling a system design problem?",
+    "explanation": "Requirements (functional and non-functional) decide everything downstream. Jumping to architecture first risks solving the wrong problem or over-engineering.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Draw the microservices architecture"
+      },
+      {
+        "id": "b",
+        "text": "Clarify the functional and non-functional requirements"
+      },
+      {
+        "id": "c",
+        "text": "Choose a database vendor"
+      },
+      {
+        "id": "d",
+        "text": "Set up Kafka"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-08",
+    "topic": "system-architecture",
+    "lesson": "identifying-read-and-write-paths",
+    "type": "single-choice",
+    "prompt": "Why do estimation and requirements come before drawing the architecture?",
+    "explanation": "The scale estimates and requirements tell you whether you need one box or a fleet, and where caching, replicas, or partitioning are justified.",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are just formalities"
+      },
+      {
+        "id": "b",
+        "text": "The requirements and scale numbers determine what architecture is actually needed"
+      },
+      {
+        "id": "c",
+        "text": "They slow you down on purpose"
+      },
+      {
+        "id": "d",
+        "text": "Architecture never depends on scale"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-09",
+    "topic": "system-architecture",
+    "lesson": "end-to-end-architecture-url-shortener",
+    "type": "single-choice",
+    "prompt": "In the URL shortener, why can redirects be served with eventual consistency?",
+    "explanation": "The read-heavy redirect path tolerates slight staleness, so an availability- and latency-favoring (AP-leaning) choice is appropriate. Only code uniqueness needs a strong guarantee.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Redirects must always be perfectly fresh"
+      },
+      {
+        "id": "b",
+        "text": "A newly created link appearing a moment late is acceptable, so favoring availability and low latency is a fine trade-off"
+      },
+      {
+        "id": "c",
+        "text": "Because URLs are encrypted"
+      },
+      {
+        "id": "d",
+        "text": "Eventual consistency is always required"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-10",
+    "topic": "system-architecture",
+    "lesson": "identifying-read-and-write-paths",
+    "type": "single-choice",
+    "prompt": "Which two questions most shape where you focus design effort?",
+    "explanation": "The read:write ratio and the hot path reveal whether to lean on caching/replicas (reads) or partitioning/queues (writes), and which operation must be fast.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The programming language and the cloud provider"
+      },
+      {
+        "id": "b",
+        "text": "The read:write ratio and the hot path"
+      },
+      {
+        "id": "c",
+        "text": "The team size and the deadline"
+      },
+      {
+        "id": "d",
+        "text": "The logo and the color scheme"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-11",
+    "topic": "system-architecture",
+    "lesson": "end-to-end-architecture-url-shortener",
+    "type": "single-choice",
+    "prompt": "Why generate short codes with a counter + Base62 and per-server id ranges?",
+    "explanation": "Base62 of a unique id yields short, collision-free codes; handing each server a block of ids removes the hot single counter.",
+    "options": [
+      {
+        "id": "a",
+        "text": "It encrypts the URLs"
+      },
+      {
+        "id": "b",
+        "text": "Base62-encoding a unique increasing id guarantees uniqueness with short codes, and per-server ranges avoid a single global-counter bottleneck"
+      },
+      {
+        "id": "c",
+        "text": "It makes redirects slower"
+      },
+      {
+        "id": "d",
+        "text": "It removes the need for a database"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "system-architecture-12",
+    "topic": "system-architecture",
+    "lesson": "validating-and-iterating-designs",
+    "type": "single-choice",
+    "prompt": "How should you present a completed system design?",
+    "explanation": "Strong designs are communicated as trade-offs (consistency vs latency, simplicity vs scale) with the bottleneck identified — there is rarely one 'right' answer.",
+    "options": [
+      {
+        "id": "a",
+        "text": "As the single correct answer with no alternatives"
+      },
+      {
+        "id": "b",
+        "text": "As a set of justified trade-offs with the current bottleneck named"
+      },
+      {
+        "id": "c",
+        "text": "As a list of technologies only"
+      },
+      {
+        "id": "d",
+        "text": "Without mentioning any weaknesses"
+      }
+    ],
+    "answer": "b"
+  },
+  {
+    "id": "estimation-and-capacity-07",
+    "topic": "estimation-and-capacity",
+    "lesson": "powers-of-two-and-data-units",
+    "type": "single-choice",
+    "prompt": "In system capacity estimation, what power of two roughly approximates one million (10^6)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "2^10 (1,024)"
+      },
+      {
+        "id": "b",
+        "text": "2^20 (1,048,576)"
+      },
+      {
+        "id": "c",
+        "text": "2^30 (1,073,741,824)"
+      },
+      {
+        "id": "d",
+        "text": "2^40 (1,099,511,627,776)"
+      }
+    ],
+    "answer": "b",
+    "explanation": "2^10 ≈ 1 thousand (1 KB), 2^20 ≈ 1 million (1 MB), 2^30 ≈ 1 billion (1 GB), and 2^40 ≈ 1 trillion (1 TB)."
+  },
+  {
+    "id": "estimation-and-capacity-08",
+    "topic": "estimation-and-capacity",
+    "lesson": "latency-numbers-every-engineer-should-know",
+    "type": "single-choice",
+    "prompt": "Approximately how much faster is reading from main memory (RAM) compared to reading randomly from an SSD?",
+    "options": [
+      {
+        "id": "a",
+        "text": "About 2 times faster"
+      },
+      {
+        "id": "b",
+        "text": "About 10 times faster"
+      },
+      {
+        "id": "c",
+        "text": "About 100 to 1,000 times faster"
+      },
+      {
+        "id": "d",
+        "text": "About 1,000,000 times faster"
+      }
+    ],
+    "answer": "c",
+    "explanation": "RAM reference takes roughly ~100 nanoseconds, while SSD random read takes ~10–100 microseconds (10,000–100,000 ns), making memory about 100 to 1,000 times faster."
+  },
+  {
+    "id": "estimation-and-capacity-09",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-qps-and-bandwidth",
+    "type": "single-choice",
+    "prompt": "If your web service transmits 100 Megabytes per second (MB/s) of egress data, what is that bandwidth in network bits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "100 Mbps"
+      },
+      {
+        "id": "b",
+        "text": "800 Mbps"
+      },
+      {
+        "id": "c",
+        "text": "8 Gbps"
+      },
+      {
+        "id": "d",
+        "text": "1.25 Gbps"
+      }
+    ],
+    "answer": "b",
+    "explanation": "There are 8 bits in a byte. 100 Megabytes per second equals 800 Megabits per second (800 Mbps or 0.8 Gbps)."
+  },
+  {
+    "id": "estimation-and-capacity-10",
+    "topic": "estimation-and-capacity",
+    "lesson": "latency-numbers-every-engineer-should-know",
+    "type": "single-choice",
+    "prompt": "Why does a network round-trip from California to Europe take roughly 150 ms regardless of bandwidth?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Slow DNS server lookups at the destination"
+      },
+      {
+        "id": "b",
+        "text": "Physical limitation: the speed of light propagating through fiber optic cables"
+      },
+      {
+        "id": "c",
+        "text": "Operating system packet buffering limits"
+      },
+      {
+        "id": "d",
+        "text": "HTTP/2 protocol header frame overhead"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Light in fiber travels at roughly ~200,000 km/s. Over global distances (~15,000 km round trip), physical propagation delay plus intermediate router hops creates an inescapable ~100-150 ms baseline latency."
+  },
+  {
+    "id": "estimation-and-capacity-11",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-storage-and-memory",
+    "type": "single-choice",
+    "prompt": "If you calculate that 10 TB of unique user data is written per year, and your database uses 3-way replication, how much raw storage must you provision per year?",
+    "options": [
+      {
+        "id": "a",
+        "text": "10 TB"
+      },
+      {
+        "id": "b",
+        "text": "13.3 TB"
+      },
+      {
+        "id": "c",
+        "text": "30 TB"
+      },
+      {
+        "id": "d",
+        "text": "90 TB"
+      }
+    ],
+    "answer": "c",
+    "explanation": "With 3-way replication (one primary and two replicas), every byte of data is stored three times across distinct disks, requiring 30 TB of raw capacity."
+  },
+  {
+    "id": "estimation-and-capacity-12",
+    "topic": "estimation-and-capacity",
+    "lesson": "estimating-qps-and-bandwidth",
+    "type": "fill-blank",
+    "prompt": "There are 24 hours * 3,600 seconds = ______ seconds in a single day.",
+    "answer": [
+      "86400",
+      "86,400"
+    ],
+    "explanation": "A day contains exactly 86,400 seconds (often approximated as 100,000 in interview calculations for fast mental math)."
+  }
+]

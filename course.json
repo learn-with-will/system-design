@@ -1,0 +1,71 @@
+{
+  "$schema": "https://raw.githubusercontent.com/learn-with-will/course-shell/main/course.schema.json",
+  "id": "system-design",
+  "name": "System Design Learn",
+  "subject": "System Design",
+  "description": "Learn system design in five-minute bites: scalability, storage, caching, replication, partitioning, consistency, messaging, consensus, and reliability.",
+  "brand": {
+    "color": "#0d9488",
+    "scale": {
+      "50": "#f0fdfa",
+      "100": "#ccfbf1",
+      "200": "#99f6e4",
+      "300": "#5eead4",
+      "400": "#2dd4bf",
+      "500": "#14b8a6",
+      "600": "#0d9488",
+      "700": "#0f766e",
+      "800": "#115e59",
+      "900": "#134e4a",
+      "950": "#042f2e"
+    },
+    "gradient": [
+      "#14b8a6",
+      "#0d9488",
+      "#0891b2"
+    ],
+    "gradientDark": [
+      "#2dd4bf",
+      "#14b8a6",
+      "#22d3ee"
+    ]
+  },
+  "home": {
+    "badge": "Source-verified distributed systems fundamentals",
+    "headline": [
+      "Design scalable, resilient distributed systems in ",
+      "five-minute bites",
+      "."
+    ],
+    "searchExamples": [
+      "CAP theorem",
+      "Consistent hashing",
+      "Raft"
+    ],
+    "featuredLesson": "what-is-system-design",
+    "featuredCode": {
+      "lang": "sql",
+      "code": "CREATE TABLE outbox_events (\n  id UUID PRIMARY KEY,\n  aggregate_type VARCHAR(64) NOT NULL,\n  aggregate_id VARCHAR(64) NOT NULL,\n  type VARCHAR(64) NOT NULL,\n  payload JSONB NOT NULL,\n  created_at TIMESTAMPTZ DEFAULT NOW()\n);"
+    },
+    "quizPreview": {
+      "topic": "consistency-and-tradeoffs",
+      "prompt": "What does the C in the CAP theorem stand for?",
+      "options": [
+        "Linearizability (recency guarantee for reads and writes)",
+        "Application data constraints (as in ACID transactions)",
+        "Cascade prevention across services"
+      ],
+      "selected": 0
+    }
+  },
+  "codeLanguages": [
+    "bash",
+    "json",
+    "yaml",
+    "sql",
+    "http",
+    "javascript",
+    "typescript",
+    "lua"
+  ]
+}

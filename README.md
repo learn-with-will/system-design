@@ -1,82 +1,39 @@
-# System Design Learning Portal
+# System Design Learn
 
-A **frontend-only** System Design course: read Markdown lessons, take quizzes, and
-track your progress — all in the browser. No sign-up, no backend.
+A self-paced, content-only course on modern distributed system design, built on the shared [course-shell](https://github.com/learn-with-will/course-shell).
+103 micro-lessons (bite-sized, 3–5 minutes each across 12 topics) with 150 interactive practice questions.
 
-## What this is
+**Live:** <https://learn-with-will.github.io/system-design/>
 
-The portal shell is built with React 19, Vite, TypeScript, React Router,
-Tailwind CSS v4, `marked`, and PrismJS. It renders a **24-lesson curriculum** covering
-the fundamentals of system design, from requirements and estimation to scaling,
-distributed data, resilience, and operating a system in production. Every lesson is
-written in plain, welcoming English and verified against primary sources (see
-**Sources** below).
+> Scope: core design principles, capacity estimation & back-of-the-envelope math, networking protocols & CDNs, load balancing & reverse proxies, storage paradigms & caching tiers, replication topologies & consensus algorithms (Paxos, Raft), partitioning & consistent hashing, distributed consistency & transactions (CAP, PACELC, 2PC, Saga), messaging queues & event-driven streaming, resilience patterns (circuit breakers, rate limiting, bulkheads), observability & chaos engineering, and end-to-end interview architectures. Every concept is grounded in production realities and distributed systems literature — see [`prompts/system-design-authoring-prompt.md`](prompts/system-design-authoring-prompt.md).
 
-Progress, bookmarks, and quiz scores live in `localStorage` under
-`system-design-learning-*` keys, so nothing leaves your machine.
+## Course layout
 
-## Run it locally
-
-```bash
-npm install
-npm run dev      # start the dev server
-npm run build    # type-check + production build into dist/
-npm run preview  # serve the production build
+```text
+course.json                    course metadata, brand styling, code languages
+content/topics.json            the 12 curriculum topics
+content/lessons/*.md           103 bite-sized micro-lessons (3–5 min each)
+content/legacy.json            backward compatibility redirect map for 24 legacy lessons
+quiz/questions.json            150 practice questions (all five question types)
+prompts/                       authoring prompt and domain guidelines
+.github/workflows/deploy.yml   thin deployment workflow invoking course-shell
 ```
 
-## How the content works
+## Develop and validate
 
-The app is **data-driven** — adding a lesson needs no code changes:
+This repository contains content only. Development and validation run through `course-shell`:
 
-1. Write the lesson Markdown in `public/content/<level>/<slug>.md` with YAML front-matter.
-2. Add a matching entry to `public/content/course-manifest.json`.
-3. Add a quiz at `public/quizzes/lesson-NN.json`.
+```bash
+# Validate content strictly against bite rules and schema
+npm --prefix ../course-shell run validate -- ../system-design --strict
 
-> **Code fences** must declare one of the highlighted languages: `bash`, `json`,
-> `yaml`, `sql`, `http`, or `text` (diagrams and terminal output use `text`; see
-> `src/core/prism.ts`).
+# Run dev server with hot reload
+npm --prefix ../course-shell run dev -- ../system-design
 
-## Curriculum
+# Build static production bundle
+npm --prefix ../course-shell run build -- ../system-design
+```
 
-**Beginner — foundations:** what system design is · scalability, availability &
-performance · back-of-the-envelope estimation · how the internet works · designing
-APIs · SQL vs NoSQL storage · caching · load balancing & reverse proxies.
+## Deploy
 
-**Intermediate — data & distribution:** scaling out & statelessness · database
-replication · partitioning (sharding) · consistency models · CAP & PACELC · messaging
-& event streaming · idempotency, retries & timeouts · rate limiting & API gateways.
-
-**Advanced — architecture & operations:** monoliths vs microservices · resilience
-patterns · distributed transactions (saga, 2PC, outbox) · consensus & coordination ·
-designing for failure · observability · security essentials · a capstone that designs
-a system end to end.
-
-## Accuracy: no hallucination
-
-Every definition, guarantee, trade-off, and number is verified against primary
-sources. The per-lesson authoring contract lives in
-`prompts/system-design-authoring-prompt.md`, and the phase-by-phase overview in
-`prompts/system-design-study-pathway.md`.
-
-**Sources:**
-
-- **Designing Data-Intensive Applications** (Martin Kleppmann, O'Reilly) — the primary
-  anchor for storage, replication, partitioning, consistency, and streaming.
-- **Google SRE book** — <https://sre.google/books/> (reliability, SLOs, observability).
-- **Foundational papers** — Gilbert & Lynch (CAP), Brewer "CAP Twelve Years Later",
-  Abadi (PACELC), Amazon Dynamo, Raft, and Lamport's "Paxos Made Simple".
-- **Standards & references** — MDN, and the IETF RFCs for HTTP (9110), TLS 1.3 (8446),
-  and OAuth 2.0 (6749).
-- **Patterns** — microservices.io (Chris Richardson) and Michael Nygard's *Release It!*
-- **Official docs** where a concrete system is named — PostgreSQL, Redis, Apache Kafka,
-  NGINX, etcd, and OpenTelemetry.
-
-## Deploying
-
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with
-`BASE_PATH=/<repo>/` and publishes `dist/` to GitHub Pages.
-
----
-
-React 19 · Vite · TypeScript · React Router · Tailwind CSS v4 · marked · PrismJS ·
-localStorage.
+Pushing to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which uses the shared [`deploy-course.yml`](https://github.com/learn-with-will/course-shell/blob/main/.github/workflows/deploy-course.yml) workflow from `course-shell` to validate, build, and deploy to GitHub Pages.

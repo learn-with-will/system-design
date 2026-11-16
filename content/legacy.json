@@ -1,0 +1,273 @@
+[
+  {
+    "id": "lesson-01",
+    "slug": "what-is-system-design",
+    "title": "What Is System Design?",
+    "lessons": [
+      "what-is-system-design",
+      "functional-vs-non-functional-requirements",
+      "reliability-scalability-maintainability",
+      "the-nature-of-trade-offs"
+    ]
+  },
+  {
+    "id": "lesson-02",
+    "slug": "scalability-availability-and-performance",
+    "title": "Scalability, Availability & Performance",
+    "lessons": [
+      "latency-vs-throughput",
+      "tail-latency-and-percentiles",
+      "availability-and-the-nines",
+      "sli-slo-and-sla"
+    ]
+  },
+  {
+    "id": "lesson-03",
+    "slug": "back-of-the-envelope-estimation",
+    "title": "Back-of-the-Envelope Estimation",
+    "lessons": [
+      "powers-of-two-and-data-units",
+      "latency-numbers-every-engineer-should-know",
+      "estimating-qps-and-bandwidth",
+      "estimating-storage-and-memory"
+    ]
+  },
+  {
+    "id": "lesson-04",
+    "slug": "how-the-internet-works",
+    "title": "How the Internet Works for Designers",
+    "lessons": [
+      "packets-and-the-ip-layer",
+      "tcp-vs-udp",
+      "dns-resolution",
+      "tls-and-https",
+      "content-delivery-networks"
+    ]
+  },
+  {
+    "id": "lesson-05",
+    "slug": "designing-apis",
+    "title": "Designing APIs: REST, RPC & GraphQL",
+    "lessons": [
+      "rest-and-resource-modeling",
+      "rpc-and-grpc",
+      "graphql-principles",
+      "api-pagination-and-versioning"
+    ]
+  },
+  {
+    "id": "lesson-06",
+    "slug": "sql-vs-nosql",
+    "title": "Storage Foundations: SQL vs NoSQL",
+    "lessons": [
+      "relational-databases-and-acid",
+      "nosql-data-models",
+      "acid-vs-base",
+      "choosing-storage-by-access-patterns"
+    ]
+  },
+  {
+    "id": "lesson-07",
+    "slug": "caching",
+    "title": "Caching",
+    "lessons": [
+      "caching-fundamentals-and-tiers",
+      "cache-read-patterns",
+      "cache-write-patterns",
+      "cache-eviction-and-ttl",
+      "cache-invalidation-and-stampedes"
+    ]
+  },
+  {
+    "id": "lesson-08",
+    "slug": "load-balancing-and-reverse-proxies",
+    "title": "Load Balancing & Reverse Proxies",
+    "lessons": [
+      "load-balancing-fundamentals",
+      "layer-4-vs-layer-7-load-balancing",
+      "load-balancing-algorithms",
+      "reverse-proxies-and-ssl-termination",
+      "health-checks-and-failover"
+    ]
+  },
+  {
+    "id": "lesson-09",
+    "slug": "scaling-out-and-statelessness",
+    "title": "Scaling Out: Statelessness & the Scaling Cube",
+    "lessons": [
+      "vertical-vs-horizontal-scaling",
+      "stateless-service-architecture",
+      "externalizing-session-state",
+      "the-scale-cube"
+    ]
+  },
+  {
+    "id": "lesson-10",
+    "slug": "database-replication",
+    "title": "Database Replication",
+    "lessons": [
+      "replication-goals-and-topologies",
+      "single-leader-replication",
+      "sync-vs-async-replication",
+      "replication-lag-and-read-anomalies",
+      "multi-leader-and-leaderless-replication"
+    ]
+  },
+  {
+    "id": "lesson-11",
+    "slug": "partitioning-and-sharding",
+    "title": "Partitioning (Sharding)",
+    "lessons": [
+      "sharding-fundamentals",
+      "range-based-partitioning",
+      "hash-based-partitioning",
+      "consistent-hashing",
+      "virtual-nodes-and-rebalancing"
+    ]
+  },
+  {
+    "id": "lesson-12",
+    "slug": "consistency-models",
+    "title": "Consistency Models",
+    "lessons": [
+      "linearizability-strong-consistency",
+      "eventual-consistency",
+      "causal-consistency",
+      "read-after-write-and-monotonic-reads"
+    ]
+  },
+  {
+    "id": "lesson-13",
+    "slug": "cap-and-pacelc",
+    "title": "The CAP Theorem & PACELC",
+    "lessons": [
+      "the-cap-theorem-explained",
+      "cap-myths-and-nuance",
+      "the-pacelc-theorem"
+    ]
+  },
+  {
+    "id": "lesson-14",
+    "slug": "messaging-and-event-streaming",
+    "title": "Messaging & Event Streaming",
+    "lessons": [
+      "message-queues-vs-event-logs",
+      "publish-subscribe-pattern",
+      "partitioned-logs-and-consumer-groups",
+      "delivery-semantics-and-deduplication"
+    ]
+  },
+  {
+    "id": "lesson-15",
+    "slug": "idempotency-retries-and-timeouts",
+    "title": "Reliable Communication: Idempotency, Retries & Timeouts",
+    "lessons": [
+      "the-two-generals-and-network-uncertainty",
+      "timeout-strategies",
+      "exponential-backoff-and-jitter",
+      "idempotency-keys"
+    ]
+  },
+  {
+    "id": "lesson-16",
+    "slug": "rate-limiting-and-api-gateways",
+    "title": "Rate Limiting & API Gateways",
+    "lessons": [
+      "rate-limiting-fundamentals",
+      "token-bucket-and-leaky-bucket",
+      "fixed-and-sliding-window-algorithms",
+      "distributed-rate-limiting",
+      "api-gateway-pattern"
+    ]
+  },
+  {
+    "id": "lesson-17",
+    "slug": "monoliths-vs-microservices",
+    "title": "Monoliths vs Microservices",
+    "lessons": [
+      "the-modular-monolith",
+      "microservices-architecture",
+      "bounded-contexts-and-service-boundaries",
+      "the-distributed-monolith"
+    ]
+  },
+  {
+    "id": "lesson-18",
+    "slug": "resilience-patterns",
+    "title": "Resilience Patterns",
+    "lessons": [
+      "partial-failure-and-blast-radius",
+      "circuit-breaker-pattern",
+      "bulkhead-pattern",
+      "load-shedding-and-graceful-degradation"
+    ]
+  },
+  {
+    "id": "lesson-19",
+    "slug": "distributed-transactions",
+    "title": "Distributed Transactions: Saga, 2PC & Outbox",
+    "lessons": [
+      "two-phase-commit",
+      "the-saga-pattern",
+      "saga-orchestration-vs-choreography",
+      "transactional-outbox-pattern"
+    ]
+  },
+  {
+    "id": "lesson-20",
+    "slug": "consensus-and-coordination",
+    "title": "Consensus & Coordination",
+    "lessons": [
+      "distributed-consensus-fundamentals",
+      "the-raft-consensus-algorithm",
+      "paxos-and-raft-compared",
+      "distributed-locks-and-leases"
+    ]
+  },
+  {
+    "id": "lesson-21",
+    "slug": "designing-for-failure",
+    "title": "Designing for Failure",
+    "lessons": [
+      "single-points-of-failure",
+      "failure-domains-and-blast-radius",
+      "disaster-recovery-rto-and-rpo",
+      "chaos-engineering-and-game-days"
+    ]
+  },
+  {
+    "id": "lesson-22",
+    "slug": "observability",
+    "title": "Observability: Logs, Metrics & Traces",
+    "lessons": [
+      "monitoring-vs-observability",
+      "the-three-pillars-metrics-logs-traces",
+      "service-level-metrics-red-and-use",
+      "distributed-tracing-and-correlation"
+    ]
+  },
+  {
+    "id": "lesson-23",
+    "slug": "security-essentials",
+    "title": "Security Essentials",
+    "lessons": [
+      "defense-in-depth",
+      "authentication-vs-authorization",
+      "oauth-2-and-openid-connect",
+      "encryption-in-transit-and-at-rest",
+      "secret-management-and-key-rotation"
+    ]
+  },
+  {
+    "id": "lesson-24",
+    "slug": "designing-a-system-end-to-end",
+    "title": "Capstone: Designing a System End to End",
+    "lessons": [
+      "system-design-interview-framework",
+      "identifying-read-and-write-paths",
+      "end-to-end-architecture-url-shortener",
+      "end-to-end-architecture-rate-limiter",
+      "validating-and-iterating-designs"
+    ]
+  }
+]

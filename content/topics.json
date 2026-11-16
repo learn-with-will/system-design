@@ -1,0 +1,74 @@
+[
+  {
+    "id": "foundations",
+    "title": "System Design Foundations",
+    "blurb": "Core requirements, the reliability/scalability/maintainability lens, latency versus throughput, percentiles, and availability targets.",
+    "order": 1
+  },
+  {
+    "id": "estimation-and-capacity",
+    "title": "Estimation & Capacity Planning",
+    "blurb": "Back-of-the-envelope calculations, powers of two, canonical latency numbers, and sizing QPS, bandwidth, and storage.",
+    "order": 2
+  },
+  {
+    "id": "networking-and-apis",
+    "title": "Networking & API Design",
+    "blurb": "The network stack (DNS, TCP, UDP, TLS 1.3), REST versus gRPC and GraphQL, pagination, and safe HTTP methods.",
+    "order": 3
+  },
+  {
+    "id": "scaling-and-traffic",
+    "title": "Scaling & Traffic Management",
+    "blurb": "Horizontal scaling, stateless service tiers, L4 versus L7 load balancing, health checks, and reverse proxies.",
+    "order": 4
+  },
+  {
+    "id": "storage-and-caching",
+    "title": "Databases & Caching",
+    "blurb": "Relational storage and ACID, NoSQL paradigms, caching strategies, eviction policies, and cache invalidation.",
+    "order": 5
+  },
+  {
+    "id": "distributed-data",
+    "title": "Replication & Partitioning",
+    "blurb": "Single-leader, multi-leader, and leaderless replication, quorum math, range versus hash sharding, and consistent hashing.",
+    "order": 6
+  },
+  {
+    "id": "consistency-and-tradeoffs",
+    "title": "Consistency Models & Trade-Offs",
+    "blurb": "Linearizability, eventual and causal consistency, the true meaning of the CAP theorem, and PACELC trade-offs.",
+    "order": 7
+  },
+  {
+    "id": "asynchronous-systems",
+    "title": "Messaging & Traffic Control",
+    "blurb": "Message queues versus partitioned event logs, pub/sub, rate limiting algorithms (token bucket, sliding window), and API gateways.",
+    "order": 8
+  },
+  {
+    "id": "distributed-reliability",
+    "title": "Resilience & Reliable Communication",
+    "blurb": "Exponential backoff with jitter, idempotency keys, circuit breakers, bulkheads, and load shedding.",
+    "order": 9
+  },
+  {
+    "id": "distributed-coordination",
+    "title": "Transactions & Consensus",
+    "blurb": "Two-phase commit (2PC), saga pattern, transactional outbox, Raft leader election, and distributed coordination with etcd/ZooKeeper.",
+    "order": 10
+  },
+  {
+    "id": "operations-and-security",
+    "title": "Observability, Resilience & Security",
+    "blurb": "Metrics, distributed tracing, designing for failure, disaster recovery (RTO/RPO), authentication, and defense in depth.",
+    "order": 11
+  },
+  {
+    "id": "system-architecture",
+    "title": "Architecture & System Synthesis",
+    "blurb": "Monoliths versus microservices, service boundaries, and the step-by-step framework for designing systems end-to-end.",
+    "order": 12
+  }
+]
